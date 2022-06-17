@@ -1,7 +1,7 @@
 import { Layout } from "antd";
-import React from "react";
-import Beers from "./Beers";
-import Header from "./Header";
+import { React } from "react";
+import { Beers } from "./Beers";
+import { Header } from "./Header";
 
 const { Content, Footer } = Layout;
 
