@@ -8,6 +8,7 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
+Node version 12 (12.22.12 worked for me) to avoid node-gyp errors during webpack:install and webpack:install:react runs
 
 * Configuration
 
