@@ -1,6 +1,6 @@
 import { Table, message, Popconfirm } from "antd";
 import React from "react";
-import { AddBeerModal } from "./AddBeerModal.jsx";
+import AddBeerModal from "./AddBeerModal";
 
 class Beers extends React.Component {
   columns = [
