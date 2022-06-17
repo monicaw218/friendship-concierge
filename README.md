@@ -8,7 +8,8 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
-Node version 12 (12.22.12 worked for me) to avoid node-gyp errors during webpack:install and webpack:install:react runs
+	* Node version 12 (12.22.12 worked for me) to avoid node-gyp errors during webpack:install and webpack:install:react runs
+	*psych-bad-alias error solved by ensuring you use gem psych < 4
 
 * Configuration
 
