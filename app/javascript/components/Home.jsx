@@ -1,5 +1,5 @@
 import { Layout } from "antd";
-import { React } from "react";
+import React from "react";
 import { Beers } from "./Beers.jsx";
 import { Header } from "./Header.jsx";
 

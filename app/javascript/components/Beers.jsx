@@ -1,5 +1,5 @@
 import { Table, message, Popconfirm } from "antd";
-import { React } from "react";
+import React from "react";
 import { AddBeerModal } from "./AddBeerModal.jsx";
 
 class Beers extends React.Component {
