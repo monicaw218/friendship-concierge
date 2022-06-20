@@ -15,7 +15,7 @@
 
   Friend.create(
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name
+    last_name: Faker::Name.last_name,
     nickname: nil,
     age: rand(23..35),
     address_line_1: Faker::Address.street_address,
