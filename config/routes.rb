@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'static_pages/home'
+  # get 'static_pages/contact'
   resources :users
   resources :friends
   namespace :api do
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
   end
 
   get '/signup', to: 'users#new'
+  get '/contact', to: 'static_pages#contact'
 
-  root "friends#index"
+  root "static_pages#home"
 end
