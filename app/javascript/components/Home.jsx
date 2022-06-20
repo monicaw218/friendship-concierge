@@ -18,7 +18,8 @@ export default () => (
   //   <Footer style={{ textAlign: "center" }}>Weitekamp ©2022.</Footer>
   // </Layout>
 
-  <div className="vw-100 vh-100 primary-color d-flex align-items-center justify-content-center">
+  <div className="vw-100 primary-color">
+    <Header />
     <div className="jumbotron jumbotron-fluid bg-transparent">
       <div className="container secondary-color">
         <h1 className="display-4">Friendship Concierge</h1>
