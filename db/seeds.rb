@@ -6,10 +6,6 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Beer.create(brand: 'Double Stout', style: 'Stout', country: 'England', quantity: 54)
-# Beer.create(brand: 'Spaten', style: 'Helles', country: 'Germany', quantity: 3)
-# Beer.create(brand: 'Newcastle', style: 'Brown ale', country: 'UK', quantity: 12)
-
 50.times do |i|
   hobbies = []
   rand(1..5).times do
@@ -21,7 +17,11 @@
     name: Faker::FunnyName.name,
     nickname: nil,
     age: rand(23..35),
-    address: Faker::Address.full_address,
+    address_line_1: Faker::Address.street_address,
+    address_line_2: Faker::Address.secondary_address,
+    city: Faker::Address.city,
+    state: Faker::Address.state_abbr,
+    zip: Faker::Address.zip_code,
     interests: hobbies
   )
 end
