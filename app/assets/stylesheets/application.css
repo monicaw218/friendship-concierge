@@ -42,3 +42,65 @@
   background-color: #f1f1f1;
 }
 
+.bg_primary-color {
+  background-color:  #FFF;
+}
+
+.primary-color {
+  background-color:  #FFF;
+}
+
+.bg_secondary-color {
+  background-color:  #293241;
+}
+
+.secondary-color {
+  color:  #293241;
+}
+
+.custom-button.btn {
+  background-color:  #293241;
+  color: #FFF;
+  border:  none;
+  display:  block;
+}
+
+.custom-button.btn:hover {
+  color:  #FFF !important;
+  border:  none;
+}
+
+.hero {
+  width:  100vw;
+  height:  50vh;
+}
+
+.hero img {
+  object-fit:  cover;
+  object-position:  top;
+  height:  100%;
+  width:  100%;
+}
+
+.overlay {
+  height:  100%;
+  width:  100%;
+  opacity:  0.4;
+}
+
+label {
+  display:  inline-block;
+  margin-bottom:  8px;
+}
+
+input {
+  margin-bottom:  32px;
+}
+
+.vertical-center {
+  margin:  0;
+  position: absolute;
+  top:  50%;
+  -ms-transform:  translateY(-50%);
+  transform:  translateY(-50%);
+}
