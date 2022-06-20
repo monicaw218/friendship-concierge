@@ -53,8 +53,11 @@ class AddFriendModal extends React.Component {
 
         <Modal title="Add New Friend" visible={this.state.visible} onCancel={this.handleCancel} footer={null}>
           <Form ref={this.formRef} layout="vertical" onFinish={this.onFinish}>
-            <Form.Item name="name" label="Name" rules={[{ required: true, message: "Please input your friend's name!" }]}>
-              <Input placeholder="Input your friend's name" />
+            <Form.Item name="first_name" label="First Name" rules={[{ required: true, message: "Please input your friend's first name!" }]}>
+              <Input placeholder="Input your friend's first name" />
+            </Form.Item>
+            <Form.Item name="last_name" label="Last Name" rules={[{ required: true, message: "Please input your friend's last name!" }]}>
+              <Input placeholder="Input your friend's last name" />
             </Form.Item>
 
             <Form.Item name="age" label="Age" rules={[{ required: true, message: "Please input your friend's age!" }]}>

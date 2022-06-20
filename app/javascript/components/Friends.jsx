@@ -5,9 +5,14 @@ import AddFriendModal from "./AddFriendModal";
 class Friends extends React.Component {
   columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
+      title: "First Name",
+      dataIndex: "first_name",
+      key: "first_name",
+    },
+    {
+      title: "Last Name",
+      dataIndex: "last_name",
+      key: "last_name",
     },
     {
       title: "Age",
@@ -54,7 +59,8 @@ class Friends extends React.Component {
           const newEl = {
             key: friend.id,
             id: friend.id,
-            name: friend.name,
+            first_name: friend.first_name,
+            last_name: friend.last_name,
             age: friend.age,
             interests: friend.interests,
           };

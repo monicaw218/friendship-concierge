@@ -4,7 +4,7 @@ class Api::V1::FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
-    @friends = Friend.all.order(brand: :asc)
+    @friends = Friend.all.order(id: :desc)
     render json: @friends
   end
 
@@ -61,7 +61,7 @@ class Api::V1::FriendsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def friend_params
-      params.permit(:name, :age, :interests)
+      params[:friend].permit(:first_name, :last_name, :age, :interests)
     end
 end
 
