@@ -6,16 +6,22 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-Beer.create(brand: 'Double Stout', style: 'Stout', country: 'England', quantity: 54)
-Beer.create(brand: 'Spaten', style: 'Helles', country: 'Germany', quantity: 3)
-Beer.create(brand: 'Newcastle', style: 'Brown ale', country: 'UK', quantity: 12)
+# Beer.create(brand: 'Double Stout', style: 'Stout', country: 'England', quantity: 54)
+# Beer.create(brand: 'Spaten', style: 'Helles', country: 'Germany', quantity: 3)
+# Beer.create(brand: 'Newcastle', style: 'Brown ale', country: 'UK', quantity: 12)
 
-10.times do |i|
+50.times do |i|
+  hobbies = []
+  rand(1..5).times do
+      hobbies << Faker::Hobby.activity
+  end
+  hobbies = hobbies.join(', ')
+
   Friend.create(
-    name: Faker::Name.name,
+    name: Faker::FunnyName.name,
     nickname: nil,
-    age: i + 20,
-    address: nil,
-    interests: "Biking, hiking, cooking, reading"
+    age: rand(23..35),
+    address: Faker::Address.full_address,
+    interests: hobbies
   )
 end
