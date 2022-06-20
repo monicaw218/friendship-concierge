@@ -18,7 +18,7 @@ export default () => (
   //   <Footer style={{ textAlign: "center" }}>Weitekamp ©2022.</Footer>
   // </Layout>
 
-  <div className="vw-100 primary-color">
+  <div className="primary-color">
     <Header />
     <div className="jumbotron jumbotron-fluid bg-transparent">
       <div className="container secondary-color">

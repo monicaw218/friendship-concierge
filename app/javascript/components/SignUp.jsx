@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
+import Header from './Header';
 
 const SignUp = ({}) => {
 	const [firstName, setFirstName] = useState('');
@@ -34,29 +35,32 @@ const SignUp = ({}) => {
 	}
 
 	return (
-		<div style={{textAlign: 'center'}} className='row'>
-			<h1 className='display-4'>Sign Up</h1>
-			<Form>
-				<label>First Name</label>
-				<input type='text' placeholder='Fred' onChange={e => setFirstName(e.target.value)} />
+		<div className='primary-color'>
+		  <Header />
+			<div style={{textAlign: 'center'}} className='row'>
+				<h1 className='display-4'>Sign Up</h1>
+				<Form>
+					<label>First Name</label>
+					<input type='text' placeholder='Fred' onChange={e => setFirstName(e.target.value)} />
 
-				<label>Last Name</label>
-				<input type='text' placeholder='Rogers' onChange={e => setLastName(e.target.value)} />
+					<label>Last Name</label>
+					<input type='text' placeholder='Rogers' onChange={e => setLastName(e.target.value)} />
 
-				<label>Email</label>
-				<input type='email' placeholder='frogers@neighborhood.com' onChange={e => setEmail(e.target.value)} />
+					<label>Email</label>
+					<input type='email' placeholder='frogers@neighborhood.com' onChange={e => setEmail(e.target.value)} />
 
-				<label>Password</label>
-				<input type='password' placeholder='Set password' onChange={e => setPassword(e.target.value)} />
+					<label>Password</label>
+					<input type='password' placeholder='Set password' onChange={e => setPassword(e.target.value)} />
 
-				<label>Password Confirmation</label>
-				<input type='password' placeholder='Confirm password' onChange={e => setPasswordConfirmation(e.target.value)} />
+					<label>Password Confirmation</label>
+					<input type='password' placeholder='Confirm password' onChange={e => setPasswordConfirmation(e.target.value)} />
 
 
-				<button type='submit' className='btn custom-button mt-3 vertical-center' onClick={e => onSubmit(e)}>
-					Submit
-				</button>
-			</Form>
+					<button type='submit' className='btn custom-button mt-3 vertical-center' onClick={e => onSubmit(e)}>
+						Submit
+					</button>
+				</Form>
+			</div>
 		</div>
 	);
 }
