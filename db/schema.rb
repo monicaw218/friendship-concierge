@@ -10,9 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_20_020443) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_20_191748) do
   create_table "friends", force: :cascade do |t|
-    t.string "name"
     t.string "nickname"
     t.integer "age"
     t.string "address_line_1"
@@ -23,6 +22,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_20_020443) do
     t.string "interests"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
   end
 
   create_table "users", force: :cascade do |t|
