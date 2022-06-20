@@ -10,3 +10,12 @@ Beer.create(brand: 'Double Stout', style: 'Stout', country: 'England', quantity:
 Beer.create(brand: 'Spaten', style: 'Helles', country: 'Germany', quantity: 3)
 Beer.create(brand: 'Newcastle', style: 'Brown ale', country: 'UK', quantity: 12)
 
+10.times do |i|
+  Friend.create(
+    name: Faker::Name.name,
+    nickname: nil,
+    age: i + 20,
+    address: nil,
+    interests: "Biking, hiking, cooking, reading"
+  )
+end
