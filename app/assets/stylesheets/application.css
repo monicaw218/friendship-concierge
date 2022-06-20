@@ -58,7 +58,7 @@
   color: #293241;
 }
 
-.custom-button.btn {
+.custom-button {
   background-color: #293241;
   color: #FFF;
   border: none;
@@ -66,7 +66,7 @@
   margin-bottom: 8px;
 }
 
-.custom-button.btn:hover {
+.custom-button:hover {
   color: #FFF !important;
   border: none;
 }
