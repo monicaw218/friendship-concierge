@@ -24,11 +24,10 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
   #   assert_redirected_to friend_url(Friend.last)
   # end
 
-  # @WIP - mweitekamp, 6/21/2022
-  # test "should show friend" do
-  #   get friend_url(@friend)
-  #   assert_response :success
-  # end
+  test "should show friend" do
+    get friend_url(@friend)
+    assert_response :success
+  end
 
   test "should get edit" do
     get edit_friend_url(@friend)
