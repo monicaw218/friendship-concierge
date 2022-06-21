@@ -1,9 +1,5 @@
-import { Layout } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Friends from './Friends';
-
-const { Content, Footer } = Layout;
 
 export default () => (
   // <Layout className="layout">

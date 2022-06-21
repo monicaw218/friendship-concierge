@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 
-const SignUp = ({}) => {
+const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -37,15 +37,15 @@ const SignUp = ({}) => {
         <h1 className='display-4'>Contact</h1>
         <Form style={{ display: 'inline-grid' }}>
           <label>Name</label>
-          <input type='text' placeholder='Name' onChange={e => setFirstName(e.target.value)} />
+          <input type='text' placeholder='Name' onChange={e => setName(e.target.value)} />
 
           <label>Email</label>
           <input type='email' placeholder='frogers@neighborhood.com' onChange={e => setEmail(e.target.value)} />
 
           <label>Message</label>
-          <input type='textarea' placeholder='Set password' onChange={e => setPassword(e.target.value)} />
+          <input type='textarea' placeholder='Write your message' onChange={e => setMessage(e.target.value)} />
 
-          <button type='submit' className='btn custom-button mt-3'>
+          <button type='submit' className='btn custom-button mt-3' onClick={e => onSubmit(e)}>
             Submit
           </button>
         </Form>
@@ -54,4 +54,4 @@ const SignUp = ({}) => {
   );
 };
 
-export default SignUp;
+export default Contact;

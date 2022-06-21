@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 
-const SignUp = ({}) => {
+const SignUp = () => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
