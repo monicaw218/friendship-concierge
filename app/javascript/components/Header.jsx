@@ -6,15 +6,15 @@ const { Header } = Layout;
 export default () => (
   <Header>
     <div className='logo' />
-    <Menu theme='dark' mode='horizontal' defaultSelectedKeys={['1']}>
+    <Menu theme='dark' mode='horizontal'>
       <Menu.Item key='1'>
-        <Link to='/'>Home</Link>
+        <a href='/'>Home</a>
       </Menu.Item>
       <Menu.Item key='2'>
-        <Link to='/signup'>Sign Up</Link>
+        <a href='/signup'>Sign Up</a>
       </Menu.Item>
       <Menu.Item key='3'>
-        <Link to='/contact'>Contact</Link>
+        <a href='/contact'>Contact</a>
       </Menu.Item>
     </Menu>
   </Header>

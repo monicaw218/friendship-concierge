@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import SignUp from '../components/SignUp';
 import Contact from '../components/Contact';
 import Friends from '../components/Friends';
+import Header from '../components/Header';
 
 export default (
   <Router>

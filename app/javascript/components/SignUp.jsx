@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import Header from './Header';
 
 const SignUp = ({}) => {
 	const [firstName, setFirstName] = useState('');
@@ -36,7 +35,6 @@ const SignUp = ({}) => {
 
 	return (
 		<div className='primary-color'>
-		  <Header />
 			<div style={{textAlign: 'center'}} className='row'>
 				<h1 className='display-4'>Sign Up</h1>
 				<Form>

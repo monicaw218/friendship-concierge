@@ -2,7 +2,6 @@ import { Layout } from 'antd';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Friends from './Friends';
-import Header from './Header';
 
 const { Content, Footer } = Layout;
 
@@ -19,7 +18,6 @@ export default () => (
   // </Layout>
 
   <div className="primary-color">
-    <Header />
     <div className="jumbotron jumbotron-fluid bg-transparent">
       <div className="container secondary-color">
         <h1 className="display-4">Friendship Concierge</h1>
