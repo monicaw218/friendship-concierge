@@ -15,27 +15,27 @@ const SignUp = ({}) => {
     const token = document.querySelector('meta[name="csrf=token"]').content;
 
     fetch(url, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "X-CSRF-Token": token,
-        "Content-Type": 'application/json'
+        'X-CSRF-Token': token,
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(body)
     })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error("Network response was not ok.");
-    })
-    .catch(error => console.log(error.message));
-  }
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .catch(error => console.log(error.message));
+  };
 
   return (
     <div className='primary-color'>
-      <div style={{textAlign: 'center'}}>
+      <div style={{ textAlign: 'center' }}>
         <h1 className='display-4'>Contact</h1>
-        <Form style={{display: 'inline-grid'}}>
+        <Form style={{ display: 'inline-grid' }}>
           <label>Name</label>
           <input type='text' placeholder='Name' onChange={e => setFirstName(e.target.value)} />
 
@@ -52,7 +52,6 @@ const SignUp = ({}) => {
       </div>
     </div>
   );
-}
+};
 
 export default SignUp;
-

@@ -4,22 +4,22 @@ import { Link } from 'react-router-dom';
 const { Header } = Layout;
 
 const makeLabel = (url, title) => {
-  return (<a href={url}>{title}</a>)
+  return (<a href={url}>{title}</a>);
 };
 
 const menuItems = [
   {
     key: '/',
-    label: makeLabel('/', 'Home'),
+    label: makeLabel('/', 'Home')
   },
   {
     key: '/signup',
-    label: makeLabel('/signup', 'Sign Up'),
+    label: makeLabel('/signup', 'Sign Up')
   },
   {
     key: '/contact',
-    label: makeLabel('/contact', 'Contact'),
-  },
+    label: makeLabel('/contact', 'Contact')
+  }
 ];
 
 export default () => (
