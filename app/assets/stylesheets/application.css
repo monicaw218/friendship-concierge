@@ -61,14 +61,13 @@
 .custom-button {
   background-color: #293241;
   color: #FFF;
-  border: none;
   display: block;
   margin-bottom: 8px;
 }
 
 .custom-button:hover {
-  color: #FFF !important;
-  border: none;
+  color: dimgray !important;
+  border: 1px solid dimgray;
 }
 
 .hero {
@@ -91,7 +90,8 @@
 
 label {
   display:  inline-block;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  margin-top: 16px;
 }
 
 input {

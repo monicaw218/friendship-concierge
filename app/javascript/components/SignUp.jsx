@@ -35,9 +35,9 @@ const SignUp = ({}) => {
 
 	return (
 		<div className='primary-color'>
-			<div style={{textAlign: 'center'}} className='row'>
+			<div style={{textAlign: 'center'}}>
 				<h1 className='display-4'>Sign Up</h1>
-				<Form>
+				<Form style={{display: 'inline-grid'}}>
 					<label>First Name</label>
 					<input type='text' placeholder='Fred' onChange={e => setFirstName(e.target.value)} />
 
@@ -54,7 +54,7 @@ const SignUp = ({}) => {
 					<input type='password' placeholder='Confirm password' onChange={e => setPasswordConfirmation(e.target.value)} />
 
 
-					<button type='submit' className='btn custom-button mt-3 vertical-center' onClick={e => onSubmit(e)}>
+					<button type='submit' className='btn custom-button mt-3' onClick={e => onSubmit(e)}>
 						Submit
 					</button>
 				</Form>

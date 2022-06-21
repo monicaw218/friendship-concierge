@@ -33,9 +33,9 @@ const SignUp = ({}) => {
 
   return (
     <div className='primary-color'>
-      <div style={{textAlign: 'center'}} className='row'>
+      <div style={{textAlign: 'center'}}>
         <h1 className='display-4'>Contact</h1>
-        <Form>
+        <Form style={{display: 'inline-grid'}}>
           <label>Name</label>
           <input type='text' placeholder='Name' onChange={e => setFirstName(e.target.value)} />
 
@@ -45,7 +45,7 @@ const SignUp = ({}) => {
           <label>Message</label>
           <input type='textarea' placeholder='Set password' onChange={e => setPassword(e.target.value)} />
 
-          <button type='submit' className='btn custom-button mt-3 vertical-center'>
+          <button type='submit' className='btn custom-button mt-3'>
             Submit
           </button>
         </Form>
