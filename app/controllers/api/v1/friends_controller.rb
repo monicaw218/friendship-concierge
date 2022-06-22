@@ -36,7 +36,7 @@ class Api::V1::FriendsController < ApplicationController
     if @friend.save
       render json: @friend
     else
-      render json: @friend.errors
+      render :json => { :errors => @friend.errors.full_messages }, :status => 422
     end
   end
 
