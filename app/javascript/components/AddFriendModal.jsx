@@ -1,74 +1,65 @@
-import { Button, Form, Input, Modal, Select } from "antd";
-import React from "react";
+import { Button, Form, Input, Modal } from 'antd';
+import React, { useState, useRef } from 'react';
 
-const { Option } = Select;
+const AddFriendModal = ({ reloadFriends }) => {
+  const [visible, setVisible] = useState(false);
+  const formRef = useRef();
 
-class AddFriendModal extends React.Component {
-  formRef = React.createRef();
-  state = {
-    visible: false,
-  };
-
-  onFinish = (values) => {
-    const url = "api/v1/friends/create";
+  const onFinish = (values) => {
+    const url = 'api/v1/friends/create';
     fetch(url, {
-      method: "post",
+      method: 'post',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(values),
+      body: JSON.stringify(values)
     })
       .then((data) => {
         if (data.ok) {
-          this.handleCancel();
+          handleCancel();
 
           return data.json();
         }
-        throw new Error("Network error.");
+        throw new Error('Network error.');
       })
       .then(() => {
-        this.props.reloadFriends();
+        reloadFriends();
       })
-      .catch((err) => console.error("Error: " + err));
+      .catch((err) => console.error('Error: ' + err));
   };
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
+  const showModal = () => {
+    setVisible(true);
   };
 
-  handleCancel = () => {
-    this.setState({
-      visible: false,
-    });
+  const handleCancel = () => {
+    setVisible(false);
   };
 
-  render() {
-    return (
-      <>
-        <Button type="primary" onClick={this.showModal}>
-          Create New +
-        </Button>
+  return (
+    <>
+      <Button type='primary' onClick={showModal}>
+        Create New +
+      </Button>
 
-        <Modal title="Add New Friend" visible={this.state.visible} onCancel={this.handleCancel} footer={null}>
-          <Form ref={this.formRef} layout="vertical" onFinish={this.onFinish}>
-            <Form.Item name="first_name" label="First Name" rules={[{ required: true, message: "Please input your friend's first name!" }]}>
-              <Input placeholder="Input your friend's first name" />
-            </Form.Item>
-            <Form.Item name="last_name" label="Last Name" rules={[{ required: true, message: "Please input your friend's last name!" }]}>
-              <Input placeholder="Input your friend's last name" />
-            </Form.Item>
+      <Modal title='Add New Friend' visible={visible} onCancel={handleCancel} footer={null}>
+        <Form ref={formRef} layout='vertical' onFinish={onFinish}>
+          <Form.Item name='first_name' label='First Name' rules={[{ required: true, message: "Please input your friend's first name!" }]}>
+            <Input placeholder="Input your friend's first name" />
+          </Form.Item>
+          <Form.Item name='last_name' label='Last Name' rules={[{ required: true, message: "Please input your friend's last name!" }]}>
+            <Input placeholder="Input your friend's last name" />
+          </Form.Item>
 
-            <Form.Item name="age" label="Age" rules={[{ required: true, message: "Please input your friend's age!" }]}>
-              <Input type="number" placeholder="Input your friend's age" />
-            </Form.Item>
+          <Form.Item name='age' label='Age' rules={[{ required: true, message: "Please input your friend's age!" }]}>
+            <Input type='number' placeholder="Input your friend's age" />
+          </Form.Item>
 
-            <Form.Item name="interests" label="Interests" rules={[{ required: true, message: "Please input your friend's interests!" }]}>
-              <Input placeholder="Input your friend's interests" />
-            </Form.Item>
+          <Form.Item name='interests' label='Interests' rules={[{ required: true, message: "Please input your friend's interests!" }]}>
+            <Input placeholder="Input your friend's interests" />
+          </Form.Item>
 
-{/*            <Form.Item
+          {/*            <Form.Item
               name="country"
               label="Country"
               rules={[
@@ -86,18 +77,16 @@ class AddFriendModal extends React.Component {
                 <Option value="USA">USA</Option>
                 <Option value="Other">Other</Option>
               </Select>
-            </Form.Item>*/}
-            <Form.Item>
-              <Button type="primary" htmlType="submit">
-                Submit
-              </Button>
-            </Form.Item>
-          </Form>
-        </Modal>
-      </>
-    );
-  }
-}
+            </Form.Item> */}
+          <Form.Item>
+            <Button type='primary' htmlType='submit'>
+              Submit
+            </Button>
+          </Form.Item>
+        </Form>
+      </Modal>
+    </>
+  );
+};
 
 export default AddFriendModal;
-
