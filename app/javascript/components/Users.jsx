@@ -1,4 +1,4 @@
-import { Table, message, Popconfirm } from 'antd';
+import { Table, message, Popconfirm, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
 
 const Users = () => {
@@ -85,6 +85,9 @@ const Users = () => {
   return (
     <>
       <Table className='table-striped-rows' dataSource={users} columns={columns} pagination={{ pageSize: 5 }} />
+      <Button type='primary' style={{'marginTop': '16px'}}>
+        <a href='/signup' style={{'textDecoration': 'none'}}>Create New +</a>
+      </Button>
     </>
   );
 };
