@@ -85,8 +85,8 @@ const Users = () => {
   return (
     <>
       <Table className='table-striped-rows' dataSource={users} columns={columns} pagination={{ pageSize: 5 }} />
-      <Button type='primary' style={{'marginTop': '16px'}}>
-        <a href='/signup' style={{'textDecoration': 'none'}}>Create New +</a>
+      <Button type='primary' style={{ marginTop: '16px' }}>
+        <a href='/signup' style={{ textDecoration: 'none' }}>Create New +</a>
       </Button>
     </>
   );

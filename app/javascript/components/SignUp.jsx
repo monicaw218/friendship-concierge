@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Form, Alert } from 'react-bootstrap';
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState('');
@@ -7,11 +7,20 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
+  const [alertVisible, setAlertVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const processErrors = messages => {
+    messages = messages.map((message, i) => {
+      return (<p key={i}>{message}</p>);
+    });
+    setErrorMessage(messages);
+  };
 
   const onSubmit = (event) => {
     event.preventDefault();
     const url = '/api/v1/users/create';
-    const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password } };
+    const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password, passwordConfirmation: passwordConfirmation } };
     const token = document.querySelector('meta[name="csrf-token"]').content;
 
     fetch(url, {
@@ -26,6 +35,9 @@ const SignUp = () => {
         if (response.ok) {
           return response.json();
         }
+        const errorResponse = response.json();
+        setAlertVisible(true);
+        errorResponse.then(json => processErrors(json.errors));
         throw new Error('Network response was not ok.');
       })
       .catch(error => console.log(error.message));
@@ -33,6 +45,17 @@ const SignUp = () => {
 
   return (
     <div className='primary-color'>
+      {alertVisible &&
+        <Alert
+          key='danger'
+          variant='danger'
+          style={{ opacity: '1' }}
+          onClose={() => setAlertVisible(false)}
+          dismissible
+        >
+          {errorMessage}
+        </Alert>}
+
       <div style={{ textAlign: 'center' }}>
         <h1 className='display-4'>Sign Up</h1>
         <Form style={{ display: 'inline-grid' }}>
