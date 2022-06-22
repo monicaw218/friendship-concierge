@@ -33,7 +33,8 @@ const SignUp = () => {
     })
       .then(response => {
         if (response.ok) {
-          return response.json();
+          window.location.replace('/');
+          // return response.json();
         } else {
           const errorResponse = response.json();
           setAlertVisible(true);
