@@ -20,7 +20,7 @@ const SignUp = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     const url = '/api/v1/users/create';
-    const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password, passwordConfirmation: passwordConfirmation } };
+    const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password, password_confirmation: passwordConfirmation } };
     const token = document.querySelector('meta[name="csrf-token"]').content;
 
     fetch(url, {
@@ -34,27 +34,27 @@ const SignUp = () => {
       .then(response => {
         if (response.ok) {
           return response.json();
+        } else {
+          const errorResponse = response.json();
+          setAlertVisible(true);
+          errorResponse.then(json => processErrors(json.errors));
         }
-        const errorResponse = response.json();
-        setAlertVisible(true);
-        errorResponse.then(json => processErrors(json.errors));
-        throw new Error('Network response was not ok.');
       })
       .catch(error => console.log(error.message));
   };
 
   return (
     <div className='primary-color'>
-      {alertVisible &&
-        <Alert
-          key='danger'
-          variant='danger'
-          style={{ opacity: '1' }}
-          onClose={() => setAlertVisible(false)}
-          dismissible
-        >
-          {errorMessage}
-        </Alert>}
+      <Alert
+        key='danger'
+        variant='danger'
+        style={{ opacity: '1' }}
+        onClose={() => setAlertVisible(false)}
+        show={alertVisible}
+        dismissible
+      >
+        {errorMessage}
+      </Alert>
 
       <div style={{ textAlign: 'center' }}>
         <h1 className='display-4'>Sign Up</h1>
