@@ -37,7 +37,7 @@ gem 'webpacker', '~> 4.3'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
@@ -49,10 +49,19 @@ gem "bootsnap", require: false
 gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.9"
 
 # Creates fake names and other fake things for seeding
 gem 'faker', '2.21'
+
+# Other gems from the hartl tutorial
+gem 'will_paginate',              '3.3.0'
+gem 'mini_magick',                '4.9.5'
+gem 'active_storage_validations', '0.8.9'
+gem 'bootstrap-will_paginate',    '1.0.0'
+gem 'bootstrap-sass',             '3.4.1'
+gem 'sass-rails',                 '6.0.0'
+gem 'turbolinks',                 '5.2.1'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
