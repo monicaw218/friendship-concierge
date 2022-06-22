@@ -10,5 +10,4 @@ class User < ApplicationRecord
 
 	has_secure_password
 	validates :password, presence: true, length: { minimum: 6 }
-	validates_confirmation_of :password, message: "Error! Make sure the password and password confirmation match"
 end
