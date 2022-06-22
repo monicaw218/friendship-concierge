@@ -4,6 +4,7 @@ import Home from '../components/Home';
 import SignUp from '../components/SignUp';
 import Contact from '../components/Contact';
 import Friends from '../components/Friends';
+import Users from '../components/Users';
 
 export default (
   <Router>
@@ -12,6 +13,7 @@ export default (
       <Route path='/signup' element={<SignUp />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/friends' element={<Friends />} />
+      <Route path='/users' element={<Users />} />
     </Routes>
   </Router>
 );
