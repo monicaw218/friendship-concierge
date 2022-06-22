@@ -12,7 +12,7 @@ const Contact = () => {
 
     const body = { contact: { name: name, email: email, message: message } };
 
-    const token = document.querySelector('meta[name="csrf=token"]').content;
+    const token = document.querySelector('meta[name="csrf-token"]').content;
 
     fetch(url, {
       method: 'POST',

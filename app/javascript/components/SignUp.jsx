@@ -12,7 +12,7 @@ const SignUp = () => {
     event.preventDefault();
     const url = '/api/v1/users/create';
     const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password } };
-    const token = document.querySelector('meta[name="csrf=token"]').content;
+    const token = document.querySelector('meta[name="csrf-token"]').content;
 
     fetch(url, {
       method: 'POST',
