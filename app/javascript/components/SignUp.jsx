@@ -11,7 +11,7 @@ const SignUp = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     const url = '/api/v1/users/create';
-    const body = { user: { first_name: firstName, last_name: lastName, username: email, password: password } };
+    const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password } };
     const token = document.querySelector('meta[name="csrf=token"]').content;
 
     fetch(url, {

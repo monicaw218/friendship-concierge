@@ -3,11 +3,9 @@
 one:
   first_name: Monica
   last_name: Weitekamp
-  username: monicadweitekamp@gmail.com
-  password: password123
+  email: monicadweitekamp@gmail.com
 
 two:
   first_name: Matthew
   last_name: Damiani
-  username: mada@aol.com
-  password: TempPassword987
+  email: mada@aol.com
