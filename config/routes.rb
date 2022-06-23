@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       delete 'friends/:id', to: 'friends#destroy'
 
       get 'users/index'
+      get 'users/:id', to: 'users#show'
       post 'users/create'
       delete 'users/:id', to: 'users#destroy'
     end
