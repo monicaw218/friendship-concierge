@@ -43,7 +43,7 @@ const Contact = () => {
           <input type='email' placeholder='frogers@neighborhood.com' onChange={e => setEmail(e.target.value)} />
 
           <label>Message</label>
-          <input type='textarea' placeholder='Write your message' onChange={e => setMessage(e.target.value)} />
+          <textarea rows='4' cols='50' placeholder='Write your message' onChange={e => setMessage(e.target.value)} />
 
           <button type='submit' className='btn custom-button mt-3' onClick={e => onSubmit(e)}>
             Submit
