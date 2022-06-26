@@ -1,27 +1,20 @@
-import { Table, message, Popconfirm, Button } from 'antd';
+import { message } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Users = () => {
   const [user, setUser] = useState({});
-	let { id } = useParams();
+  const { id } = useParams();
 
   // passing an empty array as last arg ensures loadUser is only called the first time the component loads
   useEffect(() => { loadUser(); }, []);
 
-	const APIURL = 'http://localhost:3000';
-
   const loadUser = () => {
-    const url = `${APIURL}/api/v1/users/${id}`;
-    fetch(url)
-      .then((data) => {
-        if (data.ok) {
-          return data.json();
-        }
-        throw new Error('Network error.');
-      })
-      .then((data) => {
-      	const user = data;
+    const url = `/api/v1/users/${id}`;
+    axios.get(url)
+      .then((response) => {
+        const user = response.data;
         const currentUser = {
           key: user.id,
           id: user.id,
@@ -35,16 +28,10 @@ const Users = () => {
       .catch((err) => message.error('Error: ' + err));
   };
 
-  // could be used after password update
-  const reloadUser = () => {
-    setUser([]);
-    loadUser();
-  };
-
   return (
     <>
       <div>Now showing user {id}</div>
-      
+
       <div>First Name: {user.firstName}</div>
       <div>Last Name: {user.lastName}</div>
       <div>Email: {user.email}</div>
