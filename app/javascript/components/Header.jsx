@@ -1,29 +1,17 @@
 import React from 'react';
-import { Layout, Menu } from 'antd';
-const { Header } = Layout;
-
-const makeLabel = (url, title) => {
-  return (<a href={url}>{title}</a>);
-};
-
-const menuItems = [
-  {
-    key: '/',
-    label: makeLabel('/', 'Home')
-  },
-  {
-    key: '/signup',
-    label: makeLabel('/signup', 'Sign Up')
-  },
-  {
-    key: '/contact',
-    label: makeLabel('/contact', 'Contact')
-  }
-];
+import { Navbar, Container, Nav, NavDropdown  } from 'react-bootstrap';
 
 export default () => (
-  <Header>
-    <div className='logo' />
-    <Menu theme='dark' mode='horizontal' items={menuItems} />
-  </Header>
+  <Navbar bg="light" expand="lg">
+    <Container>
+      <Navbar.Brand href="/">Friendship Concierge</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="me-auto">
+          <Nav.Link href="/signup">Sign Up</Nav.Link>
+          <Nav.Link href="/contact">Contact</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Container>
+  </Navbar>
 );
