@@ -58,52 +58,57 @@ const SignUp = () => {
       </Alert>
 
       <div style={{ textAlign: 'center' }}>
-        <h1 className='display-4'>Sign Up</h1>
-        <Form style={{ display: 'inline-grid' }}>
-          <label>First Name</label>
-          <input
-            type='text'
-            placeholder='Fred'
-            onChange={e => setFirstName(e.target.value)}
-            value={firstName}
-          />
+        <h1>Sign Up</h1>
 
-          <label>Last Name</label>
-          <input
-            type='text'
-            placeholder='Rogers'
-            onChange={e => setLastName(e.target.value)}
-            value={lastName}
-          />
+        <div className="row">
+          <div className="col-md-4 col-md-offset-4">
+            <Form>
+              <label>First Name</label>
+              <input
+                type='text'
+                placeholder='Fred'
+                onChange={e => setFirstName(e.target.value)}
+                value={firstName}
+              />
 
-          <label>Email</label>
-          <input
-            type='email'
-            placeholder='frogers@neighborhood.com'
-            onChange={e => setEmail(e.target.value)}
-            value={email}
-          />
+              <label>Last Name</label>
+              <input
+                type='text'
+                placeholder='Rogers'
+                onChange={e => setLastName(e.target.value)}
+                value={lastName}
+              />
 
-          <label>Password</label>
-          <input
-            type='password'
-            placeholder='Set password'
-            onChange={e => setPassword(e.target.value)}
-            autoComplete='off'
-          />
+              <label>Email</label>
+              <input
+                type='email'
+                placeholder='frogers@neighborhood.com'
+                onChange={e => setEmail(e.target.value)}
+                value={email}
+              />
 
-          <label>Confirm Password</label>
-          <input
-            type='password'
-            placeholder='Confirm password'
-            onChange={e => setPasswordConfirmation(e.target.value)}
-            autoComplete='off'
-          />
+              <label>Password</label>
+              <input
+                type='password'
+                placeholder='Set password'
+                onChange={e => setPassword(e.target.value)}
+                autoComplete='off'
+              />
 
-          <button type='submit' className='btn custom-button mt-3' onClick={e => onSubmit(e)}>
-            Submit
-          </button>
-        </Form>
+              <label>Confirm Password</label>
+              <input
+                type='password'
+                placeholder='Confirm password'
+                onChange={e => setPasswordConfirmation(e.target.value)}
+                autoComplete='off'
+              />
+
+              <input type='submit' value='Submit' className='btn btn-primary' onClick={e => onSubmit(e)} />
+            </Form>
+          </div>
+        </div>
+
+
       </div>
     </div>
   );
