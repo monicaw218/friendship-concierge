@@ -89,6 +89,7 @@ const SignUp = () => {
             type='password'
             placeholder='Set password'
             onChange={e => setPassword(e.target.value)}
+            autoComplete='off'
           />
 
           <label>Confirm Password</label>
@@ -96,6 +97,7 @@ const SignUp = () => {
             type='password'
             placeholder='Confirm password'
             onChange={e => setPasswordConfirmation(e.target.value)}
+            autoComplete='off'
           />
 
           <button type='submit' className='btn custom-button mt-3' onClick={e => onSubmit(e)}>
