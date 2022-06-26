@@ -91,6 +91,7 @@ const Friends = () => {
 
   return (
     <>
+      <h1>Friends Catalog</h1>
       <Table className='table-striped-rows' dataSource={friends} columns={columns} pagination={{ pageSize: 5 }} />
 
       <AddFriendModal reloadFriends={reloadFriends} />
