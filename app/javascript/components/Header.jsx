@@ -1,17 +1,21 @@
 import React from 'react';
-import { Navbar, Container, Nav, NavDropdown  } from 'react-bootstrap';
+// import { Navbar, Container, Nav, NavDropdown  } from 'react-bootstrap';
+
+const makeLabel = (url, title) => {
+  return (<a href={url}>{title}</a>);
+};
 
 export default () => (
-  <Navbar bg="light" expand="lg">
-    <Container>
-      <Navbar.Brand href="/">Friendship Concierge</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
-          <Nav.Link href="/signup">Sign Up</Nav.Link>
-          <Nav.Link href="/contact">Contact</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
-    </Container>
-  </Navbar>
+  <header className="navbar navbar-fixed-top navbar-inverse">
+    <div className="container" style={{ display: "block", float: "right" }}>
+      {makeLabel('/', 'Home')}
+      <nav>
+        <ul className="nav navbar-nav navbar-right">
+          <li>{makeLabel('/', 'Home')}</li>
+          <li>{makeLabel('/signup', 'Sign Up')}</li>
+          <li>{makeLabel('/contact', 'Contact')}</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 );
