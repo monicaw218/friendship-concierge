@@ -14,7 +14,7 @@ export default () => (
           className='btn btn-primary'
           role='button'
         >
-          Sign Up
+          Sign Up!
         </Link>
 
         <Link

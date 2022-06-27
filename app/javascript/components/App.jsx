@@ -10,7 +10,7 @@ export default () => (
   <Layout className='layout'>
     <Header />
     <Content style={{ padding: '0 50px' }}>
-      <div className='site-layout-content' style={{ margin: '100px auto' }}>
+      <div className='site-layout-content'>
         {Routes}
       </div>
     </Content>

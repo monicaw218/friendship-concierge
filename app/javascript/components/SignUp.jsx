@@ -9,12 +9,17 @@ const SignUp = () => {
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [alertVisible, setAlertVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [alertKeys, setAlertKeys] = useState([]);
+
+  const capitalizeFirst = str => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   const processErrors = messages => {
-    messages = messages.map((message, i) => {
-      return (<p key={i}>{message}</p>);
+    const formattedMessages = Object.keys(messages).map((key, i) => {
+      {return (<p key={i}>{capitalizeFirst(key)} {messages[key][0]}</p>);}
     });
-    setErrorMessage(messages);
+    setErrorMessage(formattedMessages);
   };
 
   const onSubmit = (event) => {
@@ -38,7 +43,10 @@ const SignUp = () => {
         } else {
           const errorResponse = response.json();
           setAlertVisible(true);
-          errorResponse.then(json => processErrors(json.errors));
+          errorResponse.then(json => {
+            processErrors(json.errors)
+            setAlertKeys(Object.keys(json.errors));
+          });
         }
       })
       .catch(error => console.log(error.message));
@@ -62,48 +70,67 @@ const SignUp = () => {
 
         <div className="row">
           <div className="col-md-4 col-md-offset-4">
-            <Form>
-              <label>First Name</label>
-              <input
-                type='text'
-                placeholder='Fred'
-                onChange={e => setFirstName(e.target.value)}
-                value={firstName}
-              />
+            <Form action="/users" className="new_user" id="new_user" method="post">
+              <div className={alertKeys.includes('first_name') ? 'field_with_errors' : null}>
+                <label>First Name</label>
+                <input
+                  type='text'
+                  name='users[first_name]'
+                  placeholder='Fred'
+                  onChange={e => setFirstName(e.target.value)}
+                  value={firstName}
+                  className='form-control'
+                />
+              </div>
 
-              <label>Last Name</label>
-              <input
-                type='text'
-                placeholder='Rogers'
-                onChange={e => setLastName(e.target.value)}
-                value={lastName}
-              />
+              <div className={alertKeys.includes('last_name') ? 'field_with_errors' : null}>
+                <label>Last Name</label>
+                <input
+                  type='text'
+                  name='users[last_name]'
+                  placeholder='Rogers'
+                  onChange={e => setLastName(e.target.value)}
+                  value={lastName}
+                  className='form-control'
+                />
+              </div>
 
-              <label>Email</label>
-              <input
-                type='email'
-                placeholder='frogers@neighborhood.com'
-                onChange={e => setEmail(e.target.value)}
-                value={email}
-              />
+              <div className={alertKeys.includes('email') ? 'field_with_errors' : null}>
+                <label>Email</label>
+                <input
+                  type='email'
+                  name='users[email]'
+                  placeholder='frogers@neighborhood.com'
+                  onChange={e => setEmail(e.target.value)}
+                  value={email}
+                  className='form-control'
+                />
+              </div>
 
-              <label>Password</label>
-              <input
-                type='password'
-                placeholder='Set password'
-                onChange={e => setPassword(e.target.value)}
-                autoComplete='off'
-              />
+              <div className={alertKeys.includes('password') ? 'field_with_errors' : null}>
+                <label>Password</label>
+                <input
+                  type='password'
+                  name='users[password]'
+                  placeholder='Set password'
+                  onChange={e => setPassword(e.target.value)}
+                  autoComplete='off'
+                  className='form-control'
+                />
+              </div>
 
-              <label>Confirm Password</label>
-              <input
-                type='password'
-                placeholder='Confirm password'
-                onChange={e => setPasswordConfirmation(e.target.value)}
-                autoComplete='off'
-              />
-
-              <input type='submit' value='Submit' className='btn btn-primary' onClick={e => onSubmit(e)} />
+              <div className={alertKeys.includes('password_confirmation') ? 'field_with_errors' : null}>
+                <label>Confirm Password</label>
+                <input
+                  type='password'
+                  name='users[password_confirmation]'
+                  placeholder='Confirm password'
+                  onChange={e => setPasswordConfirmation(e.target.value)}
+                  autoComplete='off'
+                  className='form-control'
+                />
+              </div>
+              <input type='submit' value='Create My Account' className='btn btn-primary' onClick={e => onSubmit(e)} />
             </Form>
           </div>
         </div>
