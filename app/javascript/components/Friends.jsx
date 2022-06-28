@@ -1,6 +1,7 @@
 import { Table, message, Popconfirm } from 'antd';
 import React, { useState, useEffect } from 'react';
 import AddFriendModal from './AddFriendModal';
+import axios from 'axios';
 
 const Friends = () => {
   const [friends, setFriends] = useState([]);
@@ -43,16 +44,11 @@ const Friends = () => {
   ];
 
   const loadFriends = () => {
-    const url = 'api/v1/friends/index';
-    fetch(url)
-      .then((data) => {
-        if (data.ok) {
-          return data.json();
-        }
-        throw new Error('Network error.');
-      })
-      .then((data) => {
-        data.forEach((friend) => {
+    const url = '/api/v1/friends';
+    axios.get(url)
+      .then((response) => {
+        const friends = response.data;
+        friends.forEach((friend) => {
           const newFriend = {
             key: friend.id,
             id: friend.id,
