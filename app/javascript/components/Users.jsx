@@ -1,5 +1,6 @@
 import { Table, message, Popconfirm, Button } from 'antd';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -37,16 +38,11 @@ const Users = () => {
   ];
 
   const loadUsers = () => {
-    const url = 'api/v1/users/index';
-    fetch(url)
-      .then((data) => {
-        if (data.ok) {
-          return data.json();
-        }
-        throw new Error('Network error.');
-      })
-      .then((data) => {
-        data.forEach((user) => {
+    const url = '/api/v1/users';
+    axios.get(url)
+      .then((response) => {
+        const users = response.data;
+        users.forEach((user) => {
           const newUser = {
             key: user.id,
             id: user.id,
