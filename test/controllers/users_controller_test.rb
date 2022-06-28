@@ -29,10 +29,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_user_url(@user)
-    assert_response :success
-  end
+  # test "should get edit" do
+  #   get edit_user_url(@user)
+  #   assert_response :success
+  # end
 
   # @WIP - mweitekamp
   # test "should update user" do
