@@ -18,7 +18,7 @@ const SignUp = () => {
 
   const processErrors = messages => {
     const formattedMessages = Object.keys(messages).map((key, i) => {
-      {return (<p key={i}>{capitalizeFirst(key)} {messages[key][0]}</p>);}
+      return (<p key={i}>{capitalizeFirst(key)} {messages[key][0]}</p>);
     });
     setErrorMessage(formattedMessages);
   };
@@ -28,17 +28,17 @@ const SignUp = () => {
     const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password, password_confirmation: passwordConfirmation } };
 
     axios.post('/api/v1/users', body)
-    .then(response => response.data)
-    .then(data => {
-      window.location.replace('/');
+      .then(response => response.data)
+      .then(data => {
+        window.location.replace('/');
       // return response.json();
-    })
-    .catch(error => {
-      const errors = error.response.data.errors;
-      setAlertVisible(true);
-      processErrors(errors)
-      setAlertKeys(Object.keys(errors));
-    });
+      })
+      .catch(error => {
+        const errors = error.response.data.errors;
+        setAlertVisible(true);
+        processErrors(errors);
+        setAlertKeys(Object.keys(errors));
+      });
   };
 
   return (
@@ -57,9 +57,9 @@ const SignUp = () => {
       <div style={{ textAlign: 'center' }}>
         <h1>Sign Up</h1>
 
-        <div className="row">
-          <div className="col-md-4 col-md-offset-4">
-            <Form action="/users" className="new_user" id="new_user" method="post">
+        <div className='row'>
+          <div className='col-md-4 col-md-offset-4'>
+            <Form action='/users' className='new_user' id='new_user' method='post'>
               <div className={alertKeys.includes('first_name') ? 'field_with_errors' : null}>
                 <label>First Name</label>
                 <input
@@ -123,7 +123,6 @@ const SignUp = () => {
             </Form>
           </div>
         </div>
-
 
       </div>
     </div>

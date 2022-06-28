@@ -6,11 +6,11 @@ const makeLabel = (url, title) => {
 };
 
 export default () => (
-  <header className="navbar navbar-fixed-top navbar-inverse">
-    <div className="container" style={{ display: "block", float: "right" }}>
+  <header className='navbar navbar-fixed-top navbar-inverse'>
+    <div className='container' style={{ display: 'block', float: 'right' }}>
       {makeLabel('/', 'Home')}
       <nav>
-        <ul className="nav navbar-nav navbar-right">
+        <ul className='nav navbar-nav navbar-right'>
           <li>{makeLabel('/', 'Home')}</li>
           <li>{makeLabel('/sessions#new', 'Log In')}</li>
           <li>{makeLabel('/contact', 'Contact')}</li>
