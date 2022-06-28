@@ -2,19 +2,13 @@ Rails.application.routes.draw do
   get 'static_pages/home'
   get 'static_pages/contact'
 
-  resources :users
+  resources :users, only: [:index, :show, :new]
   resources :friends
 
   namespace :api do
     namespace :v1 do
-      get 'friends/index'
-      post 'friends/create'
-      delete 'friends/:id', to: 'friends#destroy'
-
-      get 'users/index'
-      get 'users/:id', to: 'users#show'
-      post 'users/create'
-      delete 'users/:id', to: 'users#destroy'
+      resources :friends
+      resources :users
     end
   end
 

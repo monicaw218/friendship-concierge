@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Alert } from 'react-bootstrap';
+import axios from 'axios';
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState('');
@@ -24,32 +25,20 @@ const SignUp = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const url = '/api/v1/users/create';
     const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password, password_confirmation: passwordConfirmation } };
-    const token = document.querySelector('meta[name="csrf-token"]').content;
 
-    fetch(url, {
-      method: 'POST',
-      headers: {
-        'X-CSRF-Token': token,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
+    axios.post('/api/v1/users', body)
+    .then(response => response.data)
+    .then(data => {
+      window.location.replace('/');
+      // return response.json();
     })
-      .then(response => {
-        if (response.ok) {
-          window.location.replace('/');
-          // return response.json();
-        } else {
-          const errorResponse = response.json();
-          setAlertVisible(true);
-          errorResponse.then(json => {
-            processErrors(json.errors)
-            setAlertKeys(Object.keys(json.errors));
-          });
-        }
-      })
-      .catch(error => console.log(error.message));
+    .catch(error => {
+      const errors = error.response.data.errors;
+      setAlertVisible(true);
+      processErrors(errors)
+      setAlertKeys(Object.keys(errors));
+    });
   };
 
   return (
