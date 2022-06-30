@@ -12,7 +12,7 @@ export default () => (
       <nav>
         <ul className='nav navbar-nav navbar-right'>
           <li>{makeLabel('/', 'Home')}</li>
-          <li>{makeLabel('/sessions#new', 'Log In')}</li>
+          <li>{makeLabel('/login', 'Log In')}</li>
           <li>{makeLabel('/contact', 'Contact')}</li>
         </ul>
       </nav>

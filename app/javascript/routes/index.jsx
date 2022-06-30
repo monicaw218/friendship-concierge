@@ -7,6 +7,7 @@ import Friends from '../components/Friends';
 import Users from '../components/Users';
 import User from '../components/User';
 import Friend from '../components/Friend';
+import Login from '../components/Login';
 
 export default (
   <Router>
@@ -18,6 +19,7 @@ export default (
       <Route path='/users' element={<Users />} />
       <Route path='/users/:id' element={<User />} />
       <Route path='/friends/:id' element={<Friend />} />
+      <Route path='/login' element={<Login />} />
     </Routes>
   </Router>
 );
