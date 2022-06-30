@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
+import Button from 'react-bootstrap/Button';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -45,9 +46,9 @@ const Contact = () => {
           <label>Message</label>
           <textarea rows='4' cols='50' placeholder='Write your message' onChange={e => setMessage(e.target.value)} />
 
-          <button type='submit' className='btn custom-button mt-3' onClick={e => onSubmit(e)}>
+          <Button variant='primary' onClick={e => onSubmit(e)}>
             Submit
-          </button>
+          </Button>
         </Form>
       </div>
     </div>
