@@ -82,7 +82,7 @@ const Login = () => {
               <input type='submit' value='Log In' className='btn btn-primary' onClick={e => onSubmit(e)} />
             </Form>
 
-            <p>New user? <a href={'/signup'}>Sign up now!</a></p>
+            <p>New user? <a href='/signup'>Sign up now!</a></p>
           </div>
         </div>
 

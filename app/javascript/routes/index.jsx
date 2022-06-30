@@ -9,17 +9,31 @@ import User from '../components/User';
 import Friend from '../components/Friend';
 import Login from '../components/Login';
 
-export default (
-  <Router>
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/signup' element={<SignUp />} />
-      <Route path='/contact' element={<Contact />} />
-      <Route path='/friends' element={<Friends />} />
-      <Route path='/users' element={<Users />} />
-      <Route path='/users/:id' element={<User />} />
-      <Route path='/friends/:id' element={<Friend />} />
-      <Route path='/login' element={<Login />} />
-    </Routes>
-  </Router>
-);
+const CustomRoutes = ({ loggedIn }) => {
+  const requireAuth = (nextState, replace, next) => {
+    if (!loggedIn) {
+      replace({
+        pathname: '/login',
+        state: { nextPathname: nextState.location.pathname }
+      });
+    }
+    next();
+  };
+
+  return (
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home isLoggedIn={loggedIn} />} onEnter={requireAuth} />
+        <Route path='/signup' element={<SignUp />} onEnter={requireAuth} />
+        <Route path='/contact' element={<Contact />} onEnter={requireAuth} />
+        <Route path='/friends' element={<Friends />} onEnter={requireAuth} />
+        <Route path='/users' element={<Users />} onEnter={requireAuth} />
+        <Route path='/users/:id' element={<User />} onEnter={requireAuth} />
+        <Route path='/friends/:id' element={<Friend />} onEnter={requireAuth} />
+        <Route path='/login' element={<Login />} onEnter={requireAuth} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default CustomRoutes;
