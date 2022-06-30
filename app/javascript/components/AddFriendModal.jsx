@@ -1,30 +1,26 @@
-import { Form, Input } from 'antd';
+import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState, useRef } from 'react';
+import axios from 'axios';
 
 const AddFriendModal = ({ reloadFriends }) => {
   const [visible, setVisible] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [age, setAge] = useState(0);
+  const [interests, setInterests] = useState('');
+
   const formRef = useRef();
 
-  const onFinish = (values) => {
-    const url = 'api/v1/friends/create';
-    fetch(url, {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(values)
-    })
-      .then((data) => {
-        if (data.ok) {
-          handleCancel();
+  const onFinish = (e) => {
+    e.preventDefault();
+    const body = { friend: { first_name: firstName, last_name: lastName, age: age, interests: interests } };
 
-          return data.json();
-        }
-        throw new Error('Network error.');
-      })
-      .then(() => {
+    const url = '/api/v1/friends';
+    axios.post(url, body)
+      .then(response => {
+        handleCancel();
         reloadFriends();
       })
       .catch((err) => console.error('Error: ' + err));
@@ -44,48 +40,41 @@ const AddFriendModal = ({ reloadFriends }) => {
         Create New +
       </Button>
 
-      <Modal title='Add New Friend' visible={visible} onCancel={handleCancel} footer={null}>
-        <Form ref={formRef} layout='vertical' onFinish={onFinish}>
-          <Form.Item name='first_name' label='First Name' rules={[{ required: true, message: "Please input your friend's first name!" }]}>
-            <Input placeholder="Input your friend's first name" />
-          </Form.Item>
-          <Form.Item name='last_name' label='Last Name' rules={[{ required: true, message: "Please input your friend's last name!" }]}>
-            <Input placeholder="Input your friend's last name" />
-          </Form.Item>
+      <Modal show={visible} onHide={handleCancel} backdrop='static'>
+        <Modal.Header closeButton>
+          <Modal.Title>Make a Friend</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className='mb-3' controlId={formRef}>
+              <Form.Label name='first_name'>First Name</Form.Label>
+              <Form.Control placeholder="Input your friend's first name" onChange={e => setFirstName(e.target.value)} />
+            </Form.Group>
 
-          <Form.Item name='age' label='Age' rules={[{ required: true, message: "Please input your friend's age!" }]}>
-            <Input type='number' placeholder="Input your friend's age" />
-          </Form.Item>
+            <Form.Group className='mb-3' controlId={formRef}>
+              <Form.Label name='last_name'>Last Name</Form.Label>
+              <Form.Control placeholder="Input your friend's last name" onChange={e => setLastName(e.target.value)} />
+            </Form.Group>
 
-          <Form.Item name='interests' label='Interests' rules={[{ required: true, message: "Please input your friend's interests!" }]}>
-            <Input placeholder="Input your friend's interests" />
-          </Form.Item>
+            <Form.Group className='mb-3' controlId={formRef}>
+              <Form.Label name='age'>Age</Form.Label>
+              <Form.Control placeholder="Input your friend's age" onChange={e => setAge(e.target.value)} />
+            </Form.Group>
 
-          {/*            <Form.Item
-              name="country"
-              label="Country"
-              rules={[
-                {
-                  required: true,
-                  message: "Please input the country of the friend!",
-                },
-              ]}
-            >
-              <Select showSearch placeholder="Select your friend country" optionFilterProp="children" style={{ width: "100%" }}>
-                <Option value="Finland">Finland</Option>
-                <Option value="Germany">Germany</Option>
-                <Option value="Netherlands">Netherlands</Option>
-                <Option value="UK">UK</Option>
-                <Option value="USA">USA</Option>
-                <Option value="Other">Other</Option>
-              </Select>
-            </Form.Item> */}
-          <Form.Item>
-            <Button type='primary' htmlType='submit'>
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
+            <Form.Group className='mb-3' controlId={formRef}>
+              <Form.Label name='interests'>Interests</Form.Label>
+              <Form.Control as='textarea' rows={2} onChange={e => setInterests(e.target.value)} />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleCancel}>
+            Close
+          </Button>
+          <Button variant='primary' onClick={e => onFinish(e)}>
+            Submit
+          </Button>
+        </Modal.Footer>
       </Modal>
     </>
   );
