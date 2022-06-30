@@ -10,7 +10,7 @@ axios.defaults.headers.common['X-CSRF-TOKEN'] = token;
 const App = ({ loggedIn }) => {
   return (
     <>
-      <Header />
+      <Header isLoggedIn={loggedIn} />
       <div style={{ padding: '0 50px' }}>
         <div className='site-layout-content'>
           <CustomRoutes loggedIn={loggedIn} />

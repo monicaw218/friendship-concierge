@@ -16,5 +16,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    log_out if logged_in?
+    flash[:success] = 'Logout successful'
+
+    render json: {}
   end
 end

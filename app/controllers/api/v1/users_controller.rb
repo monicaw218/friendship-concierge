@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
- before_action :set_user, only: [:edit, :update, :destroy]
+ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json

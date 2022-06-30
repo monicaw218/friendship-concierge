@@ -1,8 +1,18 @@
 import React from 'react';
+import axios from 'axios';
 
 const Header = ({ isLoggedIn }) => {
-  const makeLabel = (url, title) => {
-    return (<a href={url}>{title}</a>);
+  const logOut = event => {
+    event.preventDefault();
+
+    axios.delete('/logout')
+      .then(response => {
+        window.location.replace('/');
+      });
+  };
+
+  const makeLabel = (url, title, onClick) => {
+    return (<a href={url} onClick={event => onClick ? onClick(event) : null}>{title}</a>);
   };
 
   return (
@@ -11,9 +21,9 @@ const Header = ({ isLoggedIn }) => {
         <nav>
           <ul className='nav navbar-nav navbar-right'>
             <li>{makeLabel('/', 'Home')}</li>
-            {isLoggedIn
+            {!isLoggedIn
               ? <li>{makeLabel('/login', 'Log In')}</li>
-              : <li>{makeLabel('/logout', 'Log Out')}</li>}
+              : <li>{makeLabel('#', 'Log Out', logOut)}</li>}
             <li>{makeLabel('/contact', 'Contact')}</li>
           </ul>
         </nav>
