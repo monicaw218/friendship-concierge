@@ -1,6 +1,10 @@
-import { Table, message, Popconfirm } from 'antd';
+import { message } from 'antd';
 import React, { useState, useEffect } from 'react';
 import AddFriendModal from './AddFriendModal';
+import Table from 'react-bootstrap/Table';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 const Friends = () => {
@@ -9,39 +13,19 @@ const Friends = () => {
   // passing an empty array as last arg ensures loadFriends is only called the first time the component loads
   useEffect(() => { loadFriends(); }, []);
 
-  const columns = [
-    {
-      title: 'First Name',
-      dataIndex: 'first_name',
-      key: 'first_name'
-    },
-    {
-      title: 'Last Name',
-      dataIndex: 'last_name',
-      key: 'last_name'
-    },
-    {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age'
-    },
-    {
-      title: 'Interests',
-      dataIndex: 'interests',
-      key: 'interests'
-    },
-    {
-      title: '',
-      key: 'action',
-      render: (_text, record) => (
-        <Popconfirm title='Are you sure to delete this friend?' onConfirm={() => deleteFriend(record.id)} okText='Yes' cancelText='No'>
-          <a href='#' type='danger'>
-            Delete{' '}
-          </a>
-        </Popconfirm>
-      )
-    }
-  ];
+
+  const displayPopover = id => {
+    return (
+      <Popover id='popover-basic'>
+        <Popover.Header>
+          You sure you want to delete this friend?
+        </Popover.Header>
+        <Popover.Body>
+          <input type='submit' style={{ width: 'auto' }} value='Yes' className='btn btn-primary' onClick={e => deleteFriend(id, e)} />
+        </Popover.Body>
+      </Popover>
+    );
+  };
 
   const loadFriends = () => {
     const url = '/api/v1/friends';
@@ -88,8 +72,36 @@ const Friends = () => {
   return (
     <>
       <h1>Friends Catalog</h1>
-      <Table className='table-striped-rows' dataSource={friends} columns={columns} pagination={{ pageSize: 5 }} />
-
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Interests</th>
+            <th>Delete Friend</th>
+          </tr>
+        </thead>
+        <tbody>
+          {friends.map((friend, i) => {
+            return (
+              <tr key={i}>
+                <td><a href={`friends/${friend.id}`}>{friend.id}</a></td>
+                <td><a href={`friends/${friend.id}`}>{friend.first_name}</a></td>
+                <td><a href={`friends/${friend.id}`}>{friend.last_name}</a></td>
+                <td><a href={`friends/${friend.id}`}>{friend.age}</a></td>
+                <td><a href={`friends/${friend.id}`}>{friend.interests}</a></td>
+                <td>
+                  <OverlayTrigger trigger='click' placement='right' overlay={displayPopover(friend.id)}>
+                    <Button variant='danger'>X</Button>
+                  </OverlayTrigger>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
       <AddFriendModal reloadFriends={reloadFriends} />
     </>
   );

@@ -1,4 +1,6 @@
-import { Button, Form, Input, Modal } from 'antd';
+import { Form, Input } from 'antd';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import React, { useState, useRef } from 'react';
 
 const AddFriendModal = ({ reloadFriends }) => {
