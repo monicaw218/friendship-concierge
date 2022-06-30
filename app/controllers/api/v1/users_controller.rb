@@ -32,8 +32,8 @@ class Api::V1::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-
     if @user.save
+      flash[:success] = "Welcome to the Friendship Concierge!"
       render json: @user
     else
       render json: { errors: @user.errors }, status: 422
