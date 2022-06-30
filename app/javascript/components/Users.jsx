@@ -1,4 +1,8 @@
-import { Table, message, Popconfirm, Button } from 'antd';
+import { message } from 'antd';
+import Table from 'react-bootstrap/Table';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+import Button from 'react-bootstrap/Button';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -8,34 +12,18 @@ const Users = () => {
   // passing an empty array as last arg ensures loadUsers is only called the first time the component loads
   useEffect(() => { loadUsers(); }, []);
 
-  const columns = [
-    {
-      title: 'First Name',
-      dataIndex: 'first_name',
-      key: 'first_name'
-    },
-    {
-      title: 'Last Name',
-      dataIndex: 'last_name',
-      key: 'last_name'
-    },
-    {
-      title: 'Email',
-      dataIndex: 'email',
-      key: 'email'
-    },
-    {
-      title: '',
-      key: 'action',
-      render: (_text, record) => (
-        <Popconfirm title='Are you sure to delete this user?' onConfirm={() => deleteUser(record.id)} okText='Yes' cancelText='No'>
-          <a href='#' type='danger'>
-            Delete{' '}
-          </a>
-        </Popconfirm>
-      )
-    }
-  ];
+  const displayPopover = userId => {
+    return (
+      <Popover id='popover-basic'>
+        <Popover.Header>
+          You sure you want to delete this user?
+        </Popover.Header>
+        <Popover.Body>
+          <input type='submit' style={{ width: 'auto' }} value='Yes' className='btn btn-primary' onClick={e => deleteUser(userId, e)} />
+        </Popover.Body>
+      </Popover>
+    );
+  };
 
   const loadUsers = () => {
     const url = '/api/v1/users';
@@ -43,7 +31,7 @@ const Users = () => {
       .then((response) => {
         const users = response.data;
         users.forEach((user) => {
-          const newUser = {
+          const jsonifiedUser = {
             key: user.id,
             id: user.id,
             first_name: user.first_name,
@@ -51,7 +39,7 @@ const Users = () => {
             email: user.email
           };
 
-          setUsers(users => [...users, newUser]);
+          setUsers(users => [...users, jsonifiedUser]);
         });
       })
       .catch((err) => message.error('Error: ' + err));
@@ -62,7 +50,8 @@ const Users = () => {
     loadUsers();
   };
 
-  const deleteUser = (id) => {
+  const deleteUser = (id, event) => {
+    event.preventDefault();
     const url = `api/v1/users/${id}`;
 
     fetch(url, {
@@ -78,12 +67,43 @@ const Users = () => {
       .catch((err) => message.error('Error: ' + err));
   };
 
+  const onSubmitCreateNew = event => {
+    event.preventDefault();
+    window.location.replace('/signup');
+  };
+
   return (
     <>
-      <Table className='table-striped-rows' dataSource={users} columns={columns} pagination={{ pageSize: 5 }} />
-      <Button type='primary' style={{ marginTop: '16px' }}>
-        <a href='/signup' style={{ textDecoration: 'none' }}>Create New +</a>
-      </Button>
+      <h1>Users</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Delete User</th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user, i) => {
+            return (
+              <tr key={i}>
+                <td><a href={`users/${user.id}`}>{user.id}</a></td>
+                <td><a href={`users/${user.id}`}>{user.first_name}</a></td>
+                <td><a href={`users/${user.id}`}>{user.last_name}</a></td>
+                <td><a href={`users/${user.id}`}>{user.email}</a></td>
+                <td>
+                  <OverlayTrigger trigger='click' placement='right' overlay={displayPopover(user.id)}>
+                    <Button variant='danger'>X</Button>
+                  </OverlayTrigger>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </Table>
+      <input type='submit' style={{ marginTop: '16px', width: 'auto' }} value='Create New +' className='btn btn-primary' onClick={onSubmitCreateNew} />
     </>
   );
 };

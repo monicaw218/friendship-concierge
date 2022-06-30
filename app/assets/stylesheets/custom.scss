@@ -38,6 +38,10 @@ textarea {
 	@include box_sizing;
 }
 
+.fade {
+  opacity: 1;
+}
+
 
 /* forms */
 input, textarea, select, .uneditable-input {
