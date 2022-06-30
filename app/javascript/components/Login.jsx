@@ -24,9 +24,9 @@ const Login = () => {
     event.preventDefault();
     const body = { session: { email: email, password: password } };
 
-    axios.post('/api/v1/sessions', body)
+    axios.post('/sessions#create', body)
       .then(response => {
-        window.location.replace(`/users/${response.data.id}`);
+        window.location.replace(`/users/${response.data}`);
       })
       .catch(error => {
         const errors = error.response.data.errors;
@@ -56,7 +56,7 @@ const Login = () => {
           <div className='col-md-4 col-md-offset-4'>
             <Form action='/login' className='new_session' id='new_session' method='post'>
               <div className={alertKeys.includes('email') ? 'field_with_errors' : null}>
-                <label for='session_email'>Email</label>
+                <label htmlFor='session_email'>Email</label>
                 <input
                   id='session_email'
                   type='email'
@@ -69,7 +69,7 @@ const Login = () => {
               </div>
 
               <div className={alertKeys.includes('password') ? 'field_with_errors' : null}>
-                <label for='session_password'>Password</label>
+                <label htmlFor='session_password'>Password</label>
                 <input
                   id='session_password'
                   type='password'
