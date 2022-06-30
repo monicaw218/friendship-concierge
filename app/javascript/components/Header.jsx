@@ -16,8 +16,8 @@ const Header = ({ isLoggedIn }) => {
   };
 
   return (
-    <header className='navbar navbar-fixed-top navbar-inverse'>
-      <div className='container' style={{ display: 'block', float: 'right' }}>
+    <header className='navbar navbar-header navbar-fixed-top navbar-inverse'>
+      <div className='container' style={{ display: 'block' }}>
         <nav>
           <ul className='nav navbar-nav navbar-right'>
             <li>{makeLabel('/', 'Home')}</li>

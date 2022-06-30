@@ -363,6 +363,6 @@ span.image {
 // navbar
 
 .navbar-nav {
-	display: block;
-	float: right;
+  flex-direction: row;
+  float: right;
 }
