@@ -51,18 +51,13 @@ const Friends = () => {
     loadFriends();
   };
 
-  const deleteFriend = (id) => {
+  const deleteFriend = (id, event) => {
+    event.preventDefault();
     const url = `api/v1/friends/${id}`;
 
-    fetch(url, {
-      method: 'delete'
-    })
-      .then((data) => {
-        if (data.ok) {
-          reloadFriends();
-          return data.json();
-        }
-        throw new Error('Network error.');
+    axios.delete(url)
+      .then(() => {
+        reloadFriends();
       })
       .catch((err) => console.log('Error: ' + err));
   };
