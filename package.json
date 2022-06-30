@@ -2,7 +2,6 @@
   "dependencies": {
     "@babel/preset-react": "^7.17.12",
     "@rails/webpacker": "4.3.0",
-    "antd": "^4.21.3",
     "axios": "^0.27.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^5.1.3",
