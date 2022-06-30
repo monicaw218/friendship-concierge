@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
   get '/friends', to: 'friends#index'
   get '/users', to: 'users#index'
+  get '/login', to: 'sessions#new'
+  delete '/logout', to: 'sessions#destroy'
 
   root "static_pages#home"
 end
