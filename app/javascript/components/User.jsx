@@ -1,4 +1,3 @@
-import { message } from 'antd';
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -25,7 +24,7 @@ const Users = () => {
         };
         setUser(currentUser);
       })
-      .catch((err) => message.error('Error: ' + err));
+      .catch((err) => console.log('Error: ' + err));
   };
 
   return (

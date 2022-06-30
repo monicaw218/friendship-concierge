@@ -1,4 +1,3 @@
-import { message } from 'antd';
 import Table from 'react-bootstrap/Table';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
@@ -42,7 +41,7 @@ const Users = () => {
           setUsers(users => [jsonifiedUser, ...users]);
         });
       })
-      .catch((err) => message.error('Error: ' + err));
+      .catch((err) => console.error('Error: ' + err));
   };
 
   const reloadUsers = () => {
@@ -64,7 +63,7 @@ const Users = () => {
         }
         throw new Error('Network error.');
       })
-      .catch((err) => message.error('Error: ' + err));
+      .catch((err) => console.log('Error: ' + err));
   };
 
   const onSubmitCreateNew = event => {

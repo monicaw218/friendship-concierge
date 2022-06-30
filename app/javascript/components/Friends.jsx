@@ -1,4 +1,3 @@
-import { message } from 'antd';
 import React, { useState, useEffect } from 'react';
 import AddFriendModal from './AddFriendModal';
 import Table from 'react-bootstrap/Table';
@@ -44,7 +43,7 @@ const Friends = () => {
           setFriends(friends => [newFriend, ...friends]);
         });
       })
-      .catch((err) => message.error('Error: ' + err));
+      .catch((err) => console.error('Error: ' + err));
   };
 
   const reloadFriends = () => {
@@ -65,7 +64,7 @@ const Friends = () => {
         }
         throw new Error('Network error.');
       })
-      .catch((err) => message.error('Error: ' + err));
+      .catch((err) => console.log('Error: ' + err));
   };
 
   return (
