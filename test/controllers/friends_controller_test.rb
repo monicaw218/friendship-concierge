@@ -29,10 +29,11 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_friend_url(@friend)
-    assert_response :success
-  end
+  # @WIP - mweitekamp, 6/30/2022
+  # test "should get edit" do
+  #   get edit_friend_url(@friend)
+  #   assert_response :success
+  # end
 
   # @WIP - mweitekamp, 6/21/2022
   # test "should update friend" do

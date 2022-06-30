@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
 
   resources :users, only: [:index, :show, :new]
-  resources :friends
+  resources :friends, only: [:index, :show, :new]
 
   namespace :api do
     namespace :v1 do
