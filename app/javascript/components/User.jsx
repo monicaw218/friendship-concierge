@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const Users = () => {
+const User = () => {
   const [user, setUser] = useState({});
   const { id } = useParams();
 
@@ -40,4 +40,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default User;
