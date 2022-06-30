@@ -29,13 +29,17 @@ const User = () => {
 
   return (
     <>
-      <div>Now showing user {id}</div>
+      <h3>{user.firstName} {user.lastName}</h3>
 
-      <div>First Name: {user.firstName}</div>
-      <div>Last Name: {user.lastName}</div>
-      <div>Email: {user.email}</div>
+      <p>
+        <strong>Email: </strong>
+        {user.email}
+      </p>
 
-      <div>Friendship Concierge initiaion date: {user.createdAt}</div>
+      <p>
+        <strong>Friendship Concierge initiaion date: </strong>
+        {user.createdAt}
+      </p>
     </>
   );
 };
