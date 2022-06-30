@@ -13,7 +13,6 @@ const Friends = () => {
   // passing an empty array as last arg ensures loadFriends is only called the first time the component loads
   useEffect(() => { loadFriends(); }, []);
 
-
   const displayPopover = id => {
     return (
       <Popover id='popover-basic'>
@@ -42,7 +41,7 @@ const Friends = () => {
             interests: friend.interests
           };
 
-          setFriends(friends => [...friends, newFriend]);
+          setFriends(friends => [newFriend, ...friends]);
         });
       })
       .catch((err) => message.error('Error: ' + err));
