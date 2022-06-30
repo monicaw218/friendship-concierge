@@ -28,10 +28,8 @@ const SignUp = () => {
     const body = { user: { first_name: firstName, last_name: lastName, email: email, password: password, password_confirmation: passwordConfirmation } };
 
     axios.post('/api/v1/users', body)
-      .then(response => response.data)
-      .then(data => {
-        window.location.replace('/');
-      // return response.json();
+      .then(response => {
+        window.location.replace(`/users/${response.data.id}`);
       })
       .catch(error => {
         const errors = error.response.data.errors;
