@@ -1,4 +1,13 @@
 {
+  "name": "friendship-concierge",
+  "version": "0.0.1",
+  "description": "Become the friend you've always wanted",
+  "repository": "",
+  "author": "Monica Weitekamp",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "~13"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.17.12",
     "@rails/webpacker": "4.3.0",
