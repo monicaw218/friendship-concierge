@@ -8,6 +8,9 @@
   "engines": {
     "node": "~13"
   },
+  "scripts": {
+    "fix": "semistandard --fix"
+  },
   "dependencies": {
     "@babel/preset-react": "^7.17.12",
     "@rails/webpacker": "4.3.0",
