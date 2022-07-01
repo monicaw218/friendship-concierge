@@ -68,8 +68,7 @@ const Friends = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Age</th>
             <th>Interests</th>
             <th>Delete Friend</th>
@@ -79,10 +78,9 @@ const Friends = () => {
           {friends.map((friend, i) => {
             return (
               <tr key={i}>
-                <td><a href={`friends/${friend.id}`}>{friend.first_name}</a></td>
-                <td><a href={`friends/${friend.id}`}>{friend.last_name}</a></td>
-                <td><a href={`friends/${friend.id}`}>{friend.age}</a></td>
-                <td><a href={`friends/${friend.id}`}>{friend.interests}</a></td>
+                <td><a href={`friends/${friend.id}`}>{friend.first_name} {friend.last_name}</a></td>
+                <td>{friend.age}</td>
+                <td>{friend.interests}</td>
                 <td>
                   <OverlayTrigger trigger='click' placement='right' overlay={displayPopover(friend.id)}>
                     <Button variant='danger'>X</Button>
