@@ -65,11 +65,13 @@ const AddFriendHistoryModal = () => {
     setDropdownTitle(selectedFriend.name);
   };
 
+  const displayButton = friends.length > 0;
+
   return (
     <>
-      <Button type='primary' onClick={showModal}>
-        Add a Friend Update
-      </Button>
+    { displayButton ? 
+      <Button type='primary' onClick={showModal}>Add a Friend Update</Button> : null
+    }
 
       <Modal show={visible} onHide={handleCancel} backdrop='static' animation={false}>
         <Modal.Header closeButton>
