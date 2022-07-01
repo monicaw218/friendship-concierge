@@ -30,8 +30,10 @@ class Api::V1::FriendsController < ApplicationController
   # POST /friends
   # POST /friends.json
   def create
-    @friend = Friend.new(friend_params)
-
+    ui_params = friend_params
+    puts("current_user.id: #{current_user.id}")
+    ui_params[:user_id] = current_user.id
+    @friend = Friend.new(ui_params)
 
     if @friend.save
       render json: @friend
