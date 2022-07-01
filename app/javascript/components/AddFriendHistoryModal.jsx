@@ -1,25 +1,26 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import React, { useState, useRef } from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
 const AddFriendHistoryModal = () => {
   const [visible, setVisible] = useState(false);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [altUpdateTime, setAltUpdateTime] = useState('');
   const [description, setDescription] = useState('');
+  const [friends, setFriends] = useState([]);
+  const [friendId, setFriendId] = useState(0);
+  const [dropdownTitle, setDropdownTitle] = useState('Pick a Friend');
 
   const formRef = useRef();
+  useEffect(() => { loadFriends(); }, []);
 
   const onFinish = (e) => {
     e.preventDefault();
     const body = {
       friend_history: {
-        first_name: firstName,
-        last_name: lastName,
-        alternate_update_time: altUpdateTime,
+        friend_id: friendId,
+        alternate_update_time: null,
         description: description
       }
     };
@@ -28,8 +29,26 @@ const AddFriendHistoryModal = () => {
     axios.post(url, body)
       .then(response => {
         handleCancel();
+        window.location.replace(`/friends/${friendId}`);
       })
       .catch((err) => { console.error('Error: ' + err.response.data.errors); handleCancel(); });
+  };
+
+  const loadFriends = () => {
+    const url = '/api/v1/friends';
+    axios.get(url)
+      .then((response) => {
+        const friends = response.data;
+        friends.forEach((friend) => {
+          const newFriend = {
+            id: friend.id,
+            name: friend.first_name + ' ' + friend.last_name
+          };
+
+          setFriends(friends => [newFriend, ...friends]);
+        });
+      })
+      .catch((err) => console.error('Error: ' + err));
   };
 
   const showModal = () => {
@@ -38,6 +57,12 @@ const AddFriendHistoryModal = () => {
 
   const handleCancel = () => {
     setVisible(false);
+  };
+
+  const selectDropdownItem = event => {
+    setFriendId(event);
+    const selectedFriend = friends.find(o => String(o.id) === event);
+    setDropdownTitle(selectedFriend.name);
   };
 
   return (
@@ -53,18 +78,26 @@ const AddFriendHistoryModal = () => {
         <Modal.Body>
           <Form>
             <Form.Group className='mb-3' controlId={formRef}>
-              <Form.Label name='first_name'>First Name</Form.Label>
-              <Form.Control onChange={e => setFirstName(e.target.value)} />
-            </Form.Group>
+              <Form.Label name='name'>Name</Form.Label>
 
-            <Form.Group className='mb-3' controlId={formRef}>
-              <Form.Label name='last_name'>Last Name</Form.Label>
-              <Form.Control onChange={e => setLastName(e.target.value)} />
-            </Form.Group>
+              <Dropdown onSelect={e => { selectDropdownItem(e); }}>
+                <Dropdown.Toggle id='dropdown-basic'>
+                  {dropdownTitle}
+                </Dropdown.Toggle>
 
-            <Form.Group className='mb-3' controlId={formRef}>
-              <Form.Label name='date'>Alternate Date</Form.Label>
-              <Form.Control placeholder='(Optional)' onChange={e => setAltUpdateTime(e.target.value)} />
+                <Dropdown.Menu>
+                  {friends.map((friend, i) => {
+                    return (
+                      <Dropdown.Item
+                        key={friend.id}
+                        eventKey={friend.id}
+                      >{friend.name}
+                      </Dropdown.Item>
+                    );
+                  })}
+                </Dropdown.Menu>
+              </Dropdown>
+
             </Form.Group>
 
             <Form.Group className='mb-3' controlId={formRef}>
