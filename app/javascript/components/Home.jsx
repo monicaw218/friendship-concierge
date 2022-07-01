@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import AddFriendHistoryModal from './AddFriendHistoryModal';
 
 const Home = ({ isLoggedIn }) => {
   const linkComponent = (title, link) => (
@@ -13,23 +14,26 @@ const Home = ({ isLoggedIn }) => {
   );
 
   return (
-    <div className='primary-color'>
-      <div className='jumbotron jumbotron-fluid bg-transparent'>
-        <div className='container secondary-color'>
-          <h1 className='display-4'>Friendship Concierge</h1>
-          <p className='lead'>Be the friend you always wanted</p>
-          <hr className='my-4' />
-          {isLoggedIn
-            ? (
-              <>
-                {linkComponent('My Friends', '/friends#index')}
-                {linkComponent('Add a Friend Update', '/')}
-              </>
-              )
-            : (<>{linkComponent('Sign Up!', '/signup')}</>)}
+    <>
+      <div className='primary-color'>
+        <div className='jumbotron jumbotron-fluid bg-transparent'>
+          <div className='container secondary-color'>
+            <h1 className='display-4'>Friendship Concierge</h1>
+            <p className='lead'>Be the friend you always wanted</p>
+            <hr className='my-4' />
+            {isLoggedIn
+              ? (
+                <>
+                  {linkComponent('My Friends', '/friends#index')}
+                  <AddFriendHistoryModal />
+                </>
+                )
+              : (<>{linkComponent('Sign Up!', '/signup')}</>)}
+          </div>
         </div>
       </div>
-    </div>
+
+    </>
   );
 };
 
