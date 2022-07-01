@@ -6,7 +6,8 @@ import axios from 'axios';
 
 const AddFriendHistoryModal = () => {
   const [visible, setVisible] = useState(false);
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [altUpdateTime, setAltUpdateTime] = useState('');
   const [description, setDescription] = useState('');
 
@@ -15,19 +16,20 @@ const AddFriendHistoryModal = () => {
   const onFinish = (e) => {
     e.preventDefault();
     const body = {
-      friendHistory: {
-        friend_id: friendId,
+      friend_history: {
+        first_name: firstName,
+        last_name: lastName,
         alternate_update_time: altUpdateTime,
         description: description
       }
     };
 
-    const url = '/api/v1/friendHistories';
+    const url = '/friend_histories';
     axios.post(url, body)
       .then(response => {
         handleCancel();
       })
-      .catch((err) => console.error('Error: ' + err));
+      .catch((err) => { console.error('Error: ' + err.response.data.errors); handleCancel(); });
   };
 
   const showModal = () => {
@@ -51,9 +53,15 @@ const AddFriendHistoryModal = () => {
         <Modal.Body>
           <Form>
             <Form.Group className='mb-3' controlId={formRef}>
-              <Form.Label name='friend'>Name</Form.Label>
-              <Form.Control placeholder="Input your friend's name" onChange={e => setName(e.target.value)} />
+              <Form.Label name='first_name'>First Name</Form.Label>
+              <Form.Control onChange={e => setFirstName(e.target.value)} />
             </Form.Group>
+
+            <Form.Group className='mb-3' controlId={formRef}>
+              <Form.Label name='last_name'>Last Name</Form.Label>
+              <Form.Control onChange={e => setLastName(e.target.value)} />
+            </Form.Group>
+
 
             <Form.Group className='mb-3' controlId={formRef}>
               <Form.Label name='date'>Alternate Date</Form.Label>
