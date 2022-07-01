@@ -1,0 +1,2 @@
+class FriendHistoriesController < ApplicationController
+end
