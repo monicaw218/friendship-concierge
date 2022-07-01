@@ -1,0 +1,2 @@
+class FriendHistory < ApplicationRecord
+end
