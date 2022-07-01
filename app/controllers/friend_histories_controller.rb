@@ -1,4 +1,5 @@
 class FriendHistoriesController < ApplicationController
+  before_action :set_friend_history, only: [:destroy]
 
 	def index
 	end
@@ -19,11 +20,18 @@ class FriendHistoriesController < ApplicationController
     end
 	end
 
+	def destroy
+		@friendHistory.destroy
+		flash[:success] = 'Friend Update deleted'
+
+    render json: { notice: 'Friend Update was successfully removed.' }
+	end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_friend
-      @friend = FriendHistory.find(params[:id])
+    def set_friend_history
+      @friendHistory = FriendHistory.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
