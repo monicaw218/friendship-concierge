@@ -40,7 +40,7 @@ const AddFriendModal = ({ reloadFriends }) => {
         Create New +
       </Button>
 
-      <Modal show={visible} onHide={handleCancel} backdrop='static'>
+      <Modal show={visible} onHide={handleCancel} backdrop='static' animation={false}>
         <Modal.Header closeButton>
           <Modal.Title>Make a Friend</Modal.Title>
         </Modal.Header>
