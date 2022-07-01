@@ -31,7 +31,6 @@ class Api::V1::FriendsController < ApplicationController
   # POST /friends.json
   def create
     ui_params = friend_params
-    puts("current_user.id: #{current_user.id}")
     ui_params[:user_id] = current_user.id
     @friend = Friend.new(ui_params)
 
