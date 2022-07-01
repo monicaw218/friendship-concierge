@@ -26,7 +26,7 @@ const Header = ({ isLoggedIn, currentUserId }) => {
     <header className='navbar navbar-header navbar-fixed-top navbar-inverse'>
       <div className='container' style={{ display: 'block' }}>
         <nav>
-          <ul className='nav navbar-nav navbar-right'>
+          <ul className='nav navbar-nav navbar-right' style={{ fontSize: '16px' }}>
             <li>{makeLabel('/', 'Home')}</li>
             {isLoggedIn
               ? loggedInItems
