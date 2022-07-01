@@ -68,7 +68,6 @@ const Friends = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>#</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Age</th>
@@ -80,7 +79,6 @@ const Friends = () => {
           {friends.map((friend, i) => {
             return (
               <tr key={i}>
-                <td><a href={`friends/${friend.id}`}>{friend.id}</a></td>
                 <td><a href={`friends/${friend.id}`}>{friend.first_name}</a></td>
                 <td><a href={`friends/${friend.id}`}>{friend.last_name}</a></td>
                 <td><a href={`friends/${friend.id}`}>{friend.age}</a></td>
