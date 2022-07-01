@@ -62,7 +62,6 @@ const AddFriendHistoryModal = () => {
               <Form.Control onChange={e => setLastName(e.target.value)} />
             </Form.Group>
 
-
             <Form.Group className='mb-3' controlId={formRef}>
               <Form.Label name='date'>Alternate Date</Form.Label>
               <Form.Control placeholder='(Optional)' onChange={e => setAltUpdateTime(e.target.value)} />

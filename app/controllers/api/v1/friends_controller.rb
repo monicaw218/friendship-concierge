@@ -12,7 +12,7 @@ class Api::V1::FriendsController < ApplicationController
   # GET /friends/1.json
   def show
     if @friend
-      render json: @friend
+      render json: {friend: @friend, feed: @friend.friend_histories}
     else
       render json: @friend.errors
     end

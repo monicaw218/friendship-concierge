@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'static_pages/contact'
 
   resources :users, only: [:index, :show, :new]
-  resources :friends, only: [:index, :show, :new]
+  resources :friends, only: [:index, :show, :new] do
+    collection do
+      :friend_histories
+    end
+  end
   resources :sessions
   resources :friend_histories
 
