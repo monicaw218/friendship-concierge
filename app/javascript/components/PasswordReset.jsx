@@ -7,7 +7,7 @@ const PasswordReset = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const body = { session: { email: email } };
+    const body = { password_reset: { email: email } };
 
     axios.post('/password_resets#create', body)
       .then(response => {
