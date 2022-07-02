@@ -14,7 +14,7 @@ class PasswordResetsController < ApplicationController
       render json: {}
     else
       flash.now[:danger] = "Email address not found"
-      render json: { errors: "Email address not found" }
+      render json: { errors: "Email address not found" }, status: 422
     end
   end
 end

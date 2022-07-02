@@ -27,11 +27,11 @@ const PasswordReset = () => {
           <div className='col-md-4 col-md-offset-4'>
             <Form action='/password_resets/new' className='new_password_reset' id='new_password_reset' method='post'>
               <div>
-                <label htmlFor='session_email'>Email</label>
+                <label htmlFor='password_reset_email'>Email</label>
                 <input
-                  id='session_email'
+                  id='password_reset_email'
                   type='email'
-                  name='session[email]'
+                  name='password_reset[email]'
                   placeholder='frogers@neighborhood.com'
                   onChange={e => setEmail(e.target.value)}
                   value={email}
