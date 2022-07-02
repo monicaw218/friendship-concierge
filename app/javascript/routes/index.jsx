@@ -33,6 +33,7 @@ const CustomRoutes = ({ loggedIn }) => {
         <Route path='/friends/:id' element={<Friend />} onEnter={requireAuth} />
         <Route path='/login' element={<Login />} onEnter={requireAuth} />
         <Route path='/password_resets/new' element={<ForgotPassword />} />
+        <Route path='/password_resets/:digest'
       </Routes>
     </Router>
   );
