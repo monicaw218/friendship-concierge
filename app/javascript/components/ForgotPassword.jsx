@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import axios from 'axios';
 
-const PasswordReset = () => {
+const ForgotPassword = () => {
   const [email, setEmail] = useState('');
 
   const onSubmit = (event) => {
@@ -49,4 +49,4 @@ const PasswordReset = () => {
   );
 };
 
-export default PasswordReset;
+export default ForgotPassword;
