@@ -6,12 +6,19 @@ import axios from 'axios';
 
 const AddFriendModal = ({ reloadFriends }) => {
   const [visible, setVisible] = useState(false);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [firstName, setFirstName] = useState(null);
+  const [lastName, setLastName] = useState(null);
   const [age, setAge] = useState(null);
-  const [interests, setInterests] = useState('');
+  const [interests, setInterests] = useState(null);
 
   const formRef = useRef();
+
+  const resetStates = () => {
+    setFirstName(null);
+    setLastName(null);
+    setAge(null);
+    setInterests(null);
+  };
 
   const onFinish = (e) => {
     e.preventDefault();
@@ -22,6 +29,7 @@ const AddFriendModal = ({ reloadFriends }) => {
       .then(response => {
         handleCancel();
         reloadFriends();
+        resetStates();
       })
       .catch((err) => console.error('Error: ' + err.response.data.errors));
   };
