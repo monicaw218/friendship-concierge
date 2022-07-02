@@ -9,6 +9,7 @@ import User from '../components/User';
 import Friend from '../components/Friend';
 import Login from '../components/Login';
 import ForgotPassword from '../components/ForgotPassword';
+import PasswordReset from '../components/PasswordReset';
 
 const CustomRoutes = ({ loggedIn }) => {
   const requireAuth = (nextState, replace, next) => {
@@ -33,7 +34,7 @@ const CustomRoutes = ({ loggedIn }) => {
         <Route path='/friends/:id' element={<Friend />} onEnter={requireAuth} />
         <Route path='/login' element={<Login />} onEnter={requireAuth} />
         <Route path='/password_resets/new' element={<ForgotPassword />} />
-        <Route path='/password_resets/:digest'
+        <Route path='/password_resets/:digest/edit?email=:email' element={<PasswordReset />} />
       </Routes>
     </Router>
   );
