@@ -41,7 +41,7 @@ const Users = () => {
           setUsers(users => [jsonifiedUser, ...users]);
         });
       })
-      .catch((err) => console.error('Error: ' + err));
+      .catch((err) => console.error('Error: ' + err.response.data.errors));
   };
 
   const reloadUsers = () => {
@@ -63,7 +63,7 @@ const Users = () => {
         }
         throw new Error('Network error.');
       })
-      .catch((err) => console.log('Error: ' + err));
+      .catch((err) => console.log('Error: ' + err.response.data.errors));
   };
 
   const onSubmitCreateNew = event => {

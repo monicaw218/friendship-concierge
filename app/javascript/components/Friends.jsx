@@ -43,7 +43,7 @@ const Friends = () => {
           setFriends(friends => [newFriend, ...friends]);
         });
       })
-      .catch((err) => console.error('Error: ' + err));
+      .catch((err) => console.error('Error: ' + err.response.data.errors));
   };
 
   const reloadFriends = () => {
@@ -59,7 +59,7 @@ const Friends = () => {
       .then(() => {
         reloadFriends();
       })
-      .catch((err) => console.log('Error: ' + err));
+      .catch((err) => console.log('Error: ' + err.response.data.errors));
   };
 
   return (

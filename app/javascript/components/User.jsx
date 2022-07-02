@@ -24,7 +24,7 @@ const User = () => {
         };
         setUser(currentUser);
       })
-      .catch((err) => console.log('Error: ' + err));
+      .catch((err) => console.log('Error: ' + err.response.data.errors));
   };
 
   return (

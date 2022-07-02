@@ -43,7 +43,7 @@ const Friend = () => {
           setFriendHistories(friendHistories => [newFriendHistory, ...friendHistories]);
         });
       })
-      .catch((err) => console.log('Error: ' + err));
+      .catch((err) => console.log('Error: ' + err.response.data.errors));
   };
 
   const displayPopover = id => {
@@ -67,7 +67,7 @@ const Friend = () => {
       .then(() => {
         reloadFriendHistories();
       })
-      .catch((err) => console.log('Error: ' + err));
+      .catch((err) => console.log('Error: ' + err.response.data.errors));
   };
 
   const reloadFriendHistories = () => {

@@ -48,7 +48,7 @@ const AddFriendHistoryModal = () => {
           setFriends(friends => [newFriend, ...friends]);
         });
       })
-      .catch((err) => console.error('Error: ' + err));
+      .catch((err) => console.error('Error: ' + err.response.data.errors));
   };
 
   const showModal = () => {
