@@ -8,7 +8,7 @@ const AddFriendModal = ({ reloadFriends }) => {
   const [visible, setVisible] = useState(false);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [age, setAge] = useState(0);
+  const [age, setAge] = useState(null);
   const [interests, setInterests] = useState('');
 
   const formRef = useRef();
@@ -23,7 +23,7 @@ const AddFriendModal = ({ reloadFriends }) => {
         handleCancel();
         reloadFriends();
       })
-      .catch((err) => console.error('Error: ' + err));
+      .catch((err) => console.error('Error: ' + err.response.data.errors));
   };
 
   const showModal = () => {
