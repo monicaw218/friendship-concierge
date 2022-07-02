@@ -37,7 +37,7 @@ const User = () => {
       </p>
 
       <p>
-        <strong>Friendship Concierge initiaion date: </strong>
+        <strong>Friendship Concierge initiation date: </strong>
         {user.createdAt}
       </p>
     </>
