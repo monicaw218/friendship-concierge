@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_01_154951) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_02_151221) do
   create_table "friend_histories", force: :cascade do |t|
     t.integer "friend_id"
     t.datetime "alternate_update_time"
@@ -42,6 +42,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_01_154951) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
