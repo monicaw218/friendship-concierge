@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/edit'
   get 'sessions/new'
   get 'static_pages/home'
   get 'static_pages/contact'
@@ -13,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :sessions
   resources :friend_histories
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   namespace :api do
     namespace :v1 do

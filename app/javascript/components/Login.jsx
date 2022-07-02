@@ -70,6 +70,7 @@ const Login = () => {
 
               <div className={alertKeys.includes('password') ? 'field_with_errors' : null}>
                 <label htmlFor='session_password'>Password</label>
+                <a href='/password_resets/new'>(forgot password)</a>
                 <input
                   id='session_password'
                   type='password'
