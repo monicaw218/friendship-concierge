@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Alert } from 'react-bootstrap';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
@@ -9,6 +10,9 @@ const PasswordReset = () => {
   const [alertVisible, setAlertVisible] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [alertKeys, setAlertKeys] = useState([]);
+
+  const { digest, inputEmail } = useParams();
+
 
   const capitalizeFirst = str => {
     return str.charAt(0).toUpperCase() + str.slice(1);
