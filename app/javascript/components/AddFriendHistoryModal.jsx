@@ -5,7 +5,7 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
-const AddFriendHistoryModal = () => {
+const AddFriendHistoryModal = ({ id }) => {
   const [visible, setVisible] = useState(false);
   const [description, setDescription] = useState('');
   const [friends, setFriends] = useState([]);
@@ -13,7 +13,7 @@ const AddFriendHistoryModal = () => {
   const [dropdownTitle, setDropdownTitle] = useState('Pick a Friend');
 
   const formRef = useRef();
-  useEffect(() => { loadFriends(); }, []);
+  useEffect(() => { id ? loadFriend() : loadFriends(); }, []);
 
   const onFinish = (e) => {
     e.preventDefault();
@@ -51,6 +51,23 @@ const AddFriendHistoryModal = () => {
       .catch((err) => console.error('Error: ' + err.response.data.errors));
   };
 
+  const loadFriend = () => {
+    const url = `/api/v1/friends/${id}`;
+    axios.get(url)
+      .then((response) => {
+        const friendInfo = response.data;
+        const friend = friendInfo.friend;
+        const jsonifiedFriend = {
+          key: friend.id,
+          id: friend.id,
+          name: friend.first_name + ' ' + friend.last_name
+        };
+        setFriends([jsonifiedFriend]);
+        setDropdownTitle(jsonifiedFriend.name);
+        setFriendId(jsonifiedFriend.id);
+      });
+  };
+
   const showModal = () => {
     setVisible(true);
   };
@@ -69,9 +86,9 @@ const AddFriendHistoryModal = () => {
 
   return (
     <>
-    { displayButton ? 
-      <Button type='primary' onClick={showModal}>Add a Friend Update</Button> : null
-    }
+      {displayButton
+        ? <Button type='primary' onClick={showModal}>Add a Friend Update</Button>
+        : null}
 
       <Modal show={visible} onHide={handleCancel} backdrop='static' animation={false}>
         <Modal.Header closeButton>

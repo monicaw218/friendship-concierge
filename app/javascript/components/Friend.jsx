@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import Button from 'react-bootstrap/Button';
+import AddFriendHistoryModal from './AddFriendHistoryModal';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -126,6 +127,8 @@ const Friend = () => {
           })}
         </tbody>
       </Table>
+
+      <AddFriendHistoryModal id={id} />
     </>
   );
 };
