@@ -32,6 +32,8 @@ class Api::V1::FriendsController < ApplicationController
   def create
     ui_params = friend_params
     ui_params[:user_id] = current_user.id
+    ui_params[:first_name] = ui_params[:first_name].capitalize
+    ui_params[:last_name] = ui_params[:last_name].capitalize
     @friend = Friend.new(ui_params)
 
     if @friend.save
