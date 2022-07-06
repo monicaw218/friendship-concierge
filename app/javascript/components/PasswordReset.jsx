@@ -34,14 +34,16 @@ const PasswordReset = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const body = { password_reset: { password: password, password_confirmation: passwordConfirmation } };
+    const body = { user: { password: password, password_confirmation: passwordConfirmation } };
 
-    axios.put('/password_resets/1', body)
+    axios.put(`/password_resets/${digest}?email=${query.get("email")}`, body)
       .then(response => {
-        window.location.replace(`/users/${response.data.id}`);
+        const userId = response.data.id;
+        window.location.replace(`/users/${userId}`);
       })
       .catch(error => {
         const errors = error.response.data.errors;
+        console.log(errors);
         setAlertVisible(true);
         processErrors(errors);
         setAlertKeys(Object.keys(errors));
