@@ -4,7 +4,7 @@ class Api::V1::FriendsController < ApplicationController
   # GET /friends
   # GET /friends.json
   def index
-    @friends = Friend.where(user_id: current_user.id).order(id: :desc)
+    @friends = Friend.where(user_id: current_user.id).order_by_last_name
     render json: @friends
   end
 
