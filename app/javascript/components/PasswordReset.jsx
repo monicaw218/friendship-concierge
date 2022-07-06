@@ -66,9 +66,6 @@ const PasswordReset = () => {
         <div className='row'>
           <div className='col-md-4 col-md-offset-4'>
             <Form action='/password_reset' className='edit_password_reset' id='edit_password_reset' method='post'>
-
-              <input type='hidden' id='hidden_email' name='password_reset[email]' value={query.get("email")} />
-
               <div className={alertKeys.includes('password') ? 'field_with_errors' : null}>
                 <label>Password</label>
                 <input
