@@ -19,7 +19,7 @@ const PasswordReset = () => {
     const { search } = useLocation();
 
     return React.useMemo(() => new URLSearchParams(search), [search]);
-  }
+  };
 
   const processErrors = messages => {
     const formattedMessages = messages.map((message, i) => {
@@ -32,7 +32,7 @@ const PasswordReset = () => {
     event.preventDefault();
     const body = { user: { password: password, password_confirmation: passwordConfirmation } };
 
-    axios.put(`/password_resets/${digest}?email=${query.get("email")}`, body)
+    axios.put(`/password_resets/${digest}?email=${query.get('email')}`, body)
       .then(response => {
         const userId = response.data.id;
         window.location.replace(`/users/${userId}`);
@@ -45,7 +45,7 @@ const PasswordReset = () => {
       });
   };
 
-  let query = useQuery();
+  const query = useQuery();
 
   return (
     <div className='primary-color'>
