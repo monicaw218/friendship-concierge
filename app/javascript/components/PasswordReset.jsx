@@ -21,13 +21,9 @@ const PasswordReset = () => {
     return React.useMemo(() => new URLSearchParams(search), [search]);
   }
 
-  const capitalizeFirst = str => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
-
   const processErrors = messages => {
-    const formattedMessages = Object.keys(messages).map((key, i) => {
-      return (<p key={i}>{capitalizeFirst(key)} {messages[key][0]}</p>);
+    const formattedMessages = messages.map((message, i) => {
+      return (<p key={i}>{message}</p>);
     });
     setErrorMessage(formattedMessages);
   };
@@ -42,8 +38,7 @@ const PasswordReset = () => {
         window.location.replace(`/users/${userId}`);
       })
       .catch(error => {
-        const errors = error.response.data.errors;
-        console.log(errors);
+        const errors = error.response.data;
         setAlertVisible(true);
         processErrors(errors);
         setAlertKeys(Object.keys(errors));

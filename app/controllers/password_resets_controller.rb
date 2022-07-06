@@ -34,7 +34,7 @@ class PasswordResetsController < ApplicationController
       flash[:success] = "Password has been reset."
       render json: { id: @user.id }
     else
-      render json: {}
+      render json: @user.errors.full_messages, status: 422
     end
   end
 
