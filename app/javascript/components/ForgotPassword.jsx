@@ -9,12 +9,12 @@ const ForgotPassword = () => {
     event.preventDefault();
     const body = { password_reset: { email: email } };
 
-    axios.post('/password_resets#create', body)
+    axios.post('/password_resets', body)
       .then(response => {
         window.location.replace('/');
       })
       .catch(error => {
-        console.log('Error: ' + error.response.data.errors);
+        window.location.replace('/');
       });
   };
 
