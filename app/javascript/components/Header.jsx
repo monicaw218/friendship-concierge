@@ -31,7 +31,6 @@ const Header = ({ isLoggedIn, currentUserId }) => {
             {isLoggedIn
               ? loggedInItems
               : <li>{makeLabel('/login', 'Log In')}</li>}
-            <li>{makeLabel('/contact', 'Contact')}</li>
           </ul>
         </nav>
       </div>
