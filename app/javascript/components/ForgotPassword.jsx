@@ -12,9 +12,6 @@ const ForgotPassword = () => {
     axios.post('/password_resets', body)
       .then(response => {
         window.location.replace('/');
-      })
-      .catch(error => {
-        window.location.replace('/');
       });
   };
 

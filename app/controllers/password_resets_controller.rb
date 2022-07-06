@@ -11,17 +11,15 @@ class PasswordResetsController < ApplicationController
 
   def create
     @user = User.find_by(email: params[:password_reset][:email].downcase)
-    flash_message = "Email sent to #{params[:password_reset][:email]} with password reset instructions"
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:info] = flash_message
-      render json: {}
     else
       puts "Email address not found"
-      flash[:info] = flash_message
-      render json: { }, status: 422
     end
+
+    flash[:info] = "Email sent to #{params[:password_reset][:email]} with password reset instructions"
+    render json: {}
   end
 
   def update
