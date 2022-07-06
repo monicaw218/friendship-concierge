@@ -19,7 +19,7 @@ const Home = ({ isLoggedIn }) => {
         <div className='jumbotron jumbotron-fluid bg-transparent'>
           <div className='container secondary-color'>
             <h1 className='display-4'>Friendship Concierge</h1>
-            <p className='lead'>Be the friend you always wanted</p>
+            <p className='lead'>Be the friend you wish you had</p>
             <hr className='my-4' />
             {isLoggedIn
               ? (
