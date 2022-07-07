@@ -38,7 +38,7 @@ const Users = () => {
             email: user.email
           };
 
-          setUsers(users => [jsonifiedUser, ...users]);
+          setUsers(users => [...users, jsonifiedUser]);
         });
       })
       .catch((err) => console.error('Error: ' + err.response.data.errors));

@@ -4,7 +4,7 @@ class Api::V1::UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all.order(id: :desc)
+    @users = User.all.order(:id)
     render json: @users
   end
 
