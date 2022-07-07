@@ -40,7 +40,7 @@ const Friends = () => {
             interests: friend.interests
           };
 
-          setFriends(friends => [newFriend, ...friends]);
+          setFriends(friends => [...friends, newFriend]);
         });
       })
       .catch((err) => console.error('Error: ' + err.response.data.errors));
