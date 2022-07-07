@@ -26,7 +26,7 @@ const Login = () => {
 
     axios.post('/sessions#create', body)
       .then(response => {
-        window.location.replace(`/friends`);
+        window.location.replace('/friends');
       })
       .catch(error => {
         const errors = error.response.data.errors;
