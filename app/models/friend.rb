@@ -9,4 +9,15 @@ class Friend < ApplicationRecord
 	def full_name
 		"#{first_name} #{last_name}"
 	end
+
+	# Capitalize first name before saving
+	# The to_s is in case you get nil/non-string
+	def first_name=(s)
+    write_attribute(:first_name, s.to_s.titleize)
+  end
+
+  # Capitalize last name before saving
+	def last_name=(s)
+    write_attribute(:last_name, s.to_s.titleize)
+  end
 end
