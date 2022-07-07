@@ -41,7 +41,7 @@ const Friend = () => {
             description: friendHistory.description
           };
 
-          setFriendHistories(friendHistories => [newFriendHistory, ...friendHistories]);
+          setFriendHistories(friendHistories => [...friendHistories, newFriendHistory]);
         });
       })
       .catch((err) => console.log('Error: ' + err.response.data.errors));
