@@ -4,8 +4,10 @@ monica:
   first_name: Monica
   last_name: Weitekamp
   email: monicadweitekamp@gmail.com
+  password_digest: <%= User.digest('password') %>
 
 matthew:
   first_name: Matthew
   last_name: Damiani
   email: mada@aol.com
+  password_digest: <%= User.digest('password') %>
