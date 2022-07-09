@@ -31,13 +31,4 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
   #   patch friend_url(@friend), params: { friend: { address_line_1: @friend.address_line_1, address_line_2: @friend.address_line_2, age: @friend.age, city: @friend.city, interests: @friend.interests, name: @friend.name, nickname: @friend.nickname, state: @friend.state, zip: @friend.zip } }
   #   assert_redirected_to friend_url(@friend)
   # end
-
-  # @WIP - mweitekamp, 6/21/2022
-  # test "should destroy friend" do
-  #   assert_difference("Friend.count", -1) do
-  #     delete friend_url(@friend)
-  #   end
-
-  #   assert_redirected_to friends_url
-  # end
 end

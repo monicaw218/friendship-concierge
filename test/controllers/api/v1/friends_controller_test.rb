@@ -23,4 +23,10 @@ class Api::V1::FriendsControllerTest < ActionDispatch::IntegrationTest
     assert_equal friend['age'], 29
     assert_equal friend['interests'], 'Website development, volleyball, gardening, skiing, learning new languages'
   end
+
+  test 'should destroy friend' do
+    assert_difference('Friend.count', -1) do
+      delete api_v1_friend_url(@friend)
+    end
+  end
 end
