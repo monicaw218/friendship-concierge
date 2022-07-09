@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Home from '../components/Home';
 import SignUp from '../components/SignUp';
 import Friends from '../components/Friends';
@@ -26,7 +26,7 @@ const CustomRoutes = ({ loggedIn }) => {
       <Routes>
         <Route path='/' element={<Home isLoggedIn={loggedIn} />} />
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/friends' element={<Friends />} onEnter={requireAuth} />
+        <Route path='/friends' element={loggedIn ? (<Friends />) : (<Navigate to="/login" />)} />
         <Route path='/users' element={<Users />} onEnter={requireAuth} />
         <Route path='/users/:id' element={<User />} onEnter={requireAuth} />
         <Route path='/friends/:id' element={<Friend />} onEnter={requireAuth} />
