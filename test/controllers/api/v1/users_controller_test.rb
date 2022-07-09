@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
-  # setup do
-  #   @user = users(:monica)
-  # end
+  setup do
+    @user = users(:monica)
+  end
 
   test 'should create new' do
     assert_difference('User.count') do
@@ -27,12 +27,9 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
   #   assert_redirected_to user_url(@user)
   # end
 
-  # @WIP - mweitekamp
-  # test "should destroy user" do
-  #   assert_difference("User.count", -1) do
-  #     delete user_url(@user)
-  #   end
-
-  #   assert_redirected_to users_url
-  # end
+  test 'should destroy user' do
+    assert_difference('User.count', -1) do
+      delete api_v1_user_url(@user)
+    end
+  end
 end
