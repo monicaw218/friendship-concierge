@@ -3,6 +3,7 @@ require 'test_helper'
 class Api::V1::FriendsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @friend = friends(:one)
+    @friend2 = friends(:two)
     @user = users(:monica)
   end
 
@@ -26,6 +27,15 @@ class Api::V1::FriendsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should destroy friend' do
     assert_difference('Friend.count', -1) do
+      delete api_v1_friend_url(@friend)
+    end
+  end
+
+  test 'when a friend is deleted, its friend histories are, too' do
+    FriendHistory.create!(friend_id: @friend.id, description: 'Lives on Skid Row')
+    FriendHistory.create!(friend_id: @friend.id, description: 'Oh whoa also some other stuff')
+    FriendHistory.create!(friend_id: @friend2.id, description: 'Here is an update for friend two')
+    assert_difference('FriendHistory.count', -2) do
       delete api_v1_friend_url(@friend)
     end
   end
