@@ -1,7 +1,7 @@
 import React from 'react';
 import CustomRoutes from '../routes/index';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from './Header';
+import Footer from './Footer';
 import axios from 'axios';
 
 const token = document.querySelector('[name=csrf-token]').content;
