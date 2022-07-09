@@ -27,9 +27,9 @@ const CustomRoutes = ({ loggedIn }) => {
         <Route path='/' element={<Home isLoggedIn={loggedIn} />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/friends' element={loggedIn ? (<Friends />) : (<Navigate to="/login" />)} />
-        <Route path='/users' element={<Users />} onEnter={requireAuth} />
-        <Route path='/users/:id' element={<User />} onEnter={requireAuth} />
-        <Route path='/friends/:id' element={<Friend />} onEnter={requireAuth} />
+        <Route path='/users' element={loggedIn ? <Users /> : (<Navigate to="/login" />)} />
+        <Route path='/users/:id' element={loggedIn ? (<User />) : (<Navigate to="/login" />)} />
+        <Route path='/friends/:id' element={loggedIn ? (<Friend />) : (<Navigate to="/login" />)}/>
         <Route path='/login' element={<Login />} />
         <Route path='/password_resets/new' element={<ForgotPassword />} />
         <Route path='/password_resets/:digest/edit' element={<PasswordReset />} />
