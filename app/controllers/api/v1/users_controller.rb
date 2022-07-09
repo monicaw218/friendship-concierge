@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    if @user
+    if @user && @user.id == current_user.id
       render json: @user
     else
       render json: @user.errors

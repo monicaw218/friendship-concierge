@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import NotFound from './NotFound';
 
 const User = () => {
   const [user, setUser] = useState({});
@@ -29,17 +30,23 @@ const User = () => {
 
   return (
     <>
-      <h3>{user.firstName} {user.lastName}</h3>
+      {user.email
+        ? (
+          <>
+            <h3>{user.firstName} {user.lastName}</h3>
 
-      <p>
-        <strong>Email: </strong>
-        {user.email}
-      </p>
+            <p>
+              <strong>Email: </strong>
+              {user.email}
+            </p>
 
-      <p>
-        <strong>Friendship Concierge initiation date: </strong>
-        {user.createdAt}
-      </p>
+            <p>
+              <strong>Friendship Concierge initiation date: </strong>
+              {user.createdAt}
+            </p>
+          </>
+          )
+        : (<NotFound />)}
     </>
   );
 };
