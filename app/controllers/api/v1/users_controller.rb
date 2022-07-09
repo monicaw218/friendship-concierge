@@ -14,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
     if @user && @user.id == current_user.id
       render json: @user
     else
-      render json: @user.errors
+      render json: @user.errors, status: 422
     end
   end
 
