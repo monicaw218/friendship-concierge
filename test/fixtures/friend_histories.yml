@@ -2,10 +2,15 @@
 
 one:
   friend_id: 1
-  alternate_update_time: 2022-07-01 11:49:51
-  description: MyString
+  alternate_update_time: null
+  description: Lives on Skid Row
 
 two:
   friend_id: 1
-  alternate_update_time: 2022-07-01 11:49:51
-  description: MyString
+  alternate_update_time: null
+  description: Oh whoa also some other stuff
+
+three:
+  friend_id: 2
+  alternate_update_time: null
+  description: Here is an update for friend two
