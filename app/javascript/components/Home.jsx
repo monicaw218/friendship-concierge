@@ -24,7 +24,7 @@ const Home = ({ isLoggedIn }) => {
             {isLoggedIn
               ? (
                 <>
-                  {linkComponent('My Friends', '/friends#index')}
+                  {linkComponent('My Friends', '/friends')}
                   <AddFriendHistoryModal />
                 </>
                 )

@@ -11,15 +11,6 @@ import ForgotPassword from '../components/ForgotPassword';
 import PasswordReset from '../components/PasswordReset';
 
 const CustomRoutes = ({ loggedIn }) => {
-  const requireAuth = (nextState, replace, next) => {
-    if (!loggedIn) {
-      replace({
-        pathname: '/login',
-        state: { nextPathname: nextState.location.pathname }
-      });
-    }
-    next();
-  };
 
   return (
     <Router>

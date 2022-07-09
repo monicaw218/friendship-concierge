@@ -24,7 +24,7 @@ const Login = () => {
     event.preventDefault();
     const body = { session: { email: email, password: password } };
 
-    axios.post('/sessions#create', body)
+    axios.post('/sessions', body)
       .then(response => {
         window.location.replace('/friends');
       })
