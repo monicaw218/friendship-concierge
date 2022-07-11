@@ -1,12 +1,11 @@
 class FriendsController < ApplicationController
-  before_action :set_friend, only: %i[ show edit update destroy ]
+  before_action :set_friend, only: %i[show edit update destroy]
 
   def index
   end
 
-
   private
-  
+
   # Use callbacks to share common setup or constraints between actions.
   def set_friend
     @friend = Friend.find(params[:id])

@@ -15,7 +15,7 @@ class PasswordResetsController < ApplicationController
       @user.create_reset_digest
       @user.send_password_reset_email
     else
-      puts "Email address not found"
+      puts 'Email address not found'
     end
 
     flash[:info] = "Email sent to #{params[:password_reset][:email]} with password reset instructions"
@@ -29,13 +29,12 @@ class PasswordResetsController < ApplicationController
     elsif @user.update(user_params)
       reset_session
       log_in @user
-      flash[:success] = "Password has been reset."
+      flash[:success] = 'Password has been reset.'
       render json: { id: @user.id }
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: @user.errors.full_messages, status: :unprocessable_entity
     end
   end
-
 
   private
 
@@ -49,15 +48,13 @@ class PasswordResetsController < ApplicationController
 
   # Confirms a valid user.
   def valid_user
-    unless (@user&.authenticated?(:reset, params[:id]))
-      render json: { errors: { invalid: ["user"] }}
-    end
+    render json: { errors: { invalid: ['user'] } } unless @user&.authenticated?(:reset, params[:id])
   end
 
   def check_expiration
     if @user.password_reset_expired?
-      flash[:danger] = "Password reset has expired."
-      render json: { errors: { password: ["reset expired"] }}
+      flash[:danger] = 'Password reset has expired.'
+      render json: { errors: { password: ['reset expired'] } }
     end
   end
 end

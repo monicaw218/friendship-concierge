@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       render json: user.id
     else
       # Create an error message.
-      render json: { errors: { invalid: ["email/password combination"] }}, status: 422
+      render json: { errors: { invalid: ['email/password combination'] } }, status: :unprocessable_entity
     end
   end
 

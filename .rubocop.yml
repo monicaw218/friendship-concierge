@@ -12,6 +12,8 @@ AllCops:
 Style/Documentation:
   Enabled: false
 
+Style/EmptyMethod:
+  EnforcedStyle: expanded
 
 
 # Work

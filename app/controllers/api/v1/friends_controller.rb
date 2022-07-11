@@ -12,7 +12,7 @@ class Api::V1::FriendsController < ApplicationController
   # GET /friends/1.json
   def show
     if @friend
-      render json: {friend: @friend, feed: @friend.friend_histories}
+      render json: { friend: @friend, feed: @friend.friend_histories }
     else
       render json: @friend.errors
     end
@@ -37,7 +37,7 @@ class Api::V1::FriendsController < ApplicationController
     if @friend.save
       render json: @friend
     else
-      render :json => { :errors => @friend.errors.full_messages }, :status => 422
+      render json: { errors: @friend.errors.full_messages }, status: :unprocessable_entity
     end
   end
 
@@ -55,14 +55,14 @@ class Api::V1::FriendsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_friend
-      @friend = Friend.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def friend_params
-      params[:friend].permit(:first_name, :last_name, :age, :interests)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_friend
+    @friend = Friend.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def friend_params
+    params[:friend].permit(:first_name, :last_name, :age, :interests)
+  end
 end
-

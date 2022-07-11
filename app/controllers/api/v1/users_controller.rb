@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
- before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -14,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
     if @user && @user.id == current_user.id
       render json: @user
     else
-      render json: @user.errors, status: 422
+      render json: @user.errors, status: :unprocessable_entity
     end
   end
 
@@ -35,10 +35,10 @@ class Api::V1::UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      flash[:success] = "Welcome to the Friendship Concierge!"
+      flash[:success] = 'Welcome to the Friendship Concierge!'
       render json: @user
     else
-      render json: { errors: @user.errors }, status: 422
+      render json: { errors: @user.errors }, status: :unprocessable_entity
     end
   end
 
@@ -56,13 +56,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params[:user].permit(:first_name, :last_name, :email, :password, :password_confirmation)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params[:user].permit(:first_name, :last_name, :email, :password, :password_confirmation)
+  end
 end
