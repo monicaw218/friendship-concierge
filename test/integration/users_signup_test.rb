@@ -24,6 +24,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
 
     assert flash[:success]
-    assert is_logged_in?
+    assert logged_in?
   end
 end
