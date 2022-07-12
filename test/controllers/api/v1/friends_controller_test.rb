@@ -43,8 +43,8 @@ class Api::V1::FriendsControllerTest < ActionDispatch::IntegrationTest
   # @WIP - mweitekamp, 6/21/2022
   # test "should update friend" do
   # patch friend_url(@friend), params: { friend: {
-  #   address_line_1: @friend.address_line_1,
-  #   address_line_2: @friend.address_line_2,
+  #   address_line1: @friend.address_line1,
+  #   address_line2: @friend.address_line2,
   #   age: @friend.age,
   #   city: @friend.city,
   #   interests: @friend.interests,

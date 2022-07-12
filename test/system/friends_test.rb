@@ -14,8 +14,8 @@ class FriendsTest < ApplicationSystemTestCase
     visit friends_url
     click_on 'New friend'
 
-    fill_in 'Address line 1', with: @friend.address_line_1
-    fill_in 'Address line 2', with: @friend.address_line_2
+    fill_in 'Address line 1', with: @friend.address_line1
+    fill_in 'Address line 2', with: @friend.address_line2
     fill_in 'Age', with: @friend.age
     fill_in 'City', with: @friend.city
     fill_in 'Interests', with: @friend.interests
@@ -33,8 +33,8 @@ class FriendsTest < ApplicationSystemTestCase
     visit friend_url(@friend)
     click_on 'Edit this friend', match: :first
 
-    fill_in 'Address line 1', with: @friend.address_line_1
-    fill_in 'Address line 2', with: @friend.address_line_2
+    fill_in 'Address line 1', with: @friend.address_line1
+    fill_in 'Address line 2', with: @friend.address_line2
     fill_in 'Age', with: @friend.age
     fill_in 'City', with: @friend.city
     fill_in 'Interests', with: @friend.interests

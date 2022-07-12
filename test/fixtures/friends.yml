@@ -5,8 +5,8 @@ one:
   last_name: Weitekamp
   nickname: Mongol
   age: 29
-  address_line_1: 874 President Street
-  address_line_2: 'Apt #3F'
+  address_line1: 874 President Street
+  address_line2: 'Apt #3F'
   city: Brooklyn
   state: NY
   zip: 11215
@@ -17,8 +17,8 @@ two:
   last_name: Damiani
   nickname: '#Money-Matt'
   age: 28
-  address_line_1: 874 President Street
-  address_line_2: "Apt #3F"
+  address_line1: 874 President Street
+  address_line2: "Apt #3F"
   city: Brooklyn
   state: NY
   zip: 11215
@@ -29,8 +29,8 @@ three:
   last_name: Damiani
   nickname: null
   age: 32
-  address_line_1: 14 E Chase Street
-  address_line_2: null
+  address_line1: 14 E Chase Street
+  address_line2: null
   city: Baltimore
   state: MD
   zip: 21202
@@ -41,8 +41,8 @@ four:
   last_name: Weitekamp
   nickname: Joe
   age: 25
-  address_line_1: 94 Conklin Avenue
-  address_line_2: Basement
+  address_line1: 94 Conklin Avenue
+  address_line2: Basement
   city: Wheatley Heights
   state: NY
   zip: 11798
@@ -53,8 +53,8 @@ five:
   last_name: Damiani
   nickname: null
   age: 64
-  address_line_1: 62 Massapequa Avenue
-  address_line_2: null
+  address_line1: 62 Massapequa Avenue
+  address_line2: null
   city: Massapequa Park
   state: NY
   interests: Pottery, classic rock, the Mets
@@ -64,8 +64,8 @@ six:
   last_name: Damiani
   nickname: 
   age: 64
-  address_line_1: 62 Massapequa Avenue
-  address_line_2: null
+  address_line1: 62 Massapequa Avenue
+  address_line2: null
   city: Massapequa Park
   state: NY
   interests: Jelly, The Rolling Stones, classic rock, the Mets
@@ -75,8 +75,8 @@ seven:
   last_name: Weitekamp
   nickname: Mom
   age: 58
-  address_line_1: 85 Morris Avenue West
-  address_line_2: null
+  address_line1: 85 Morris Avenue West
+  address_line2: null
   city: Malverne
   state: 11565
   interests: Tennis, NYU, gardening, her cat Leopold, disco, classic rock, Hawaii, learning Italian
@@ -86,8 +86,8 @@ eight:
   last_name: Weitekamp
   nickname: Dad
   age: 62
-  address_line_1: 85 Morris Avenue West
-  address_line_2: null
+  address_line1: 85 Morris Avenue West
+  address_line2: null
   city: Malverne
   state: 11565
   interests: software development, biking, hiking, classic rock, Hawaii
@@ -97,8 +97,8 @@ eight:
 #   last_name:
 #   nickname:
 #   age: 
-#   address_line_1: 
-#   address_line_2: 
+#   address_line1: 
+#   address_line2: 
 #   city: 
 #   state: 
 #   interests: 
