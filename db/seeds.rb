@@ -6,13 +6,15 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create!(first_name: "First", last_name: "User", email: "fuser@railstutorial.org", password: "abc1234", password_confirmation: "abc1234")
-User.create!(first_name: 'Second', last_name: 'User', email: 'second@user.com', password: "password123", password_confirmation: "password123");
+User.create!(first_name: 'First', last_name: 'User', email: 'fuser@railstutorial.org', password: 'abc1234',
+  password_confirmation: 'abc1234')
+User.create!(first_name: 'Second', last_name: 'User', email: 'second@user.com', password: 'password123',
+  password_confirmation: 'password123')
 
 50.times do |i|
   hobbies = []
   rand(1..5).times do
-      hobbies << Faker::Hobby.activity
+    hobbies << Faker::Hobby.activity
   end
   hobbies = hobbies.join(', ')
 
