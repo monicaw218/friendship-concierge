@@ -8,18 +8,18 @@ class FriendHistoriesController < ApplicationController
   end
 
   def create
-    @friendHistory = FriendHistory.new(friend_history_params)
+    @friend_history = FriendHistory.new(friend_history_params)
 
-    @friendHistory.save
+    @friend_history.save
     flash[:success] = 'Friend Update saved!'
-    render json: @friendHistory
+    render json: @friend_history
   rescue StandardError
     flash[:danger] = 'No friend with that name. Want to create one?'
-    render json: { errors: @friendHistory.errors.full_messages }, status: :unprocessable_entity
+    render json: { errors: @friend_history.errors.full_messages }, status: :unprocessable_entity
   end
 
   def destroy
-    @friendHistory.destroy
+    @friend_history.destroy
     flash[:success] = 'Friend Update deleted'
 
     render json: { notice: 'Friend Update was successfully removed.' }
@@ -29,7 +29,7 @@ class FriendHistoriesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_friend_history
-    @friendHistory = FriendHistory.find(params[:id])
+    @friend_history = FriendHistory.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

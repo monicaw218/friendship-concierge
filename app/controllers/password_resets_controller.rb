@@ -15,7 +15,7 @@ class PasswordResetsController < ApplicationController
       @user.create_reset_digest
       @user.send_password_reset_email
     else
-      puts 'Email address not found'
+      Rails.logger.debug 'Email address not found'
     end
 
     flash[:info] = "Email sent to #{params[:password_reset][:email]} with password reset instructions"
@@ -52,9 +52,9 @@ class PasswordResetsController < ApplicationController
   end
 
   def check_expiration
-    if @user.password_reset_expired?
-      flash[:danger] = 'Password reset has expired.'
-      render json: { errors: { password: ['reset expired'] } }
-    end
+    return unless @user.password_reset_expired?
+
+    flash[:danger] = 'Password reset has expired.'
+    render json: { errors: { password: ['reset expired'] } }
   end
 end

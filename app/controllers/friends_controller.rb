@@ -1,6 +1,4 @@
 class FriendsController < ApplicationController
-  before_action :set_friend, only: %i[show edit update destroy]
-
   def index
   end
 
