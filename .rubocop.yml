@@ -3,8 +3,7 @@ require:
 
 AllCops:
   Exclude:
-    - "db/schema.rb"
-    - "vendor/**/*"
+    - 'db/**/*'
   TargetRubyVersion: 3.1
 
 
