@@ -33,7 +33,7 @@ class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "should prevent user from accessing other user profiles" do
+  test 'should prevent user from accessing other user profiles' do
     log_in_as(users(:matthew))
     get api_v1_user_url(@user)
     assert_response 422

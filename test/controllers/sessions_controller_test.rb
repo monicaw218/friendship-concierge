@@ -8,6 +8,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should destroy' do
     delete logout_path
-    assert_response :success    
+    assert_response :success
   end
 end

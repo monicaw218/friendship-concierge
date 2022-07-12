@@ -1,21 +1,21 @@
-require "test_helper"
+require 'test_helper'
 
 class FriendsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @friend = friends(:one)
   end
 
-  test "should get index" do
+  test 'should get index' do
     get friends_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_friend_url
     assert_response :success
   end
 
-  test "should show friend" do
+  test 'should show friend' do
     get friend_url(@friend)
     assert_response :success
   end

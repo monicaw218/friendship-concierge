@@ -3,11 +3,11 @@ require 'test_helper'
 class FriendHistoryTest < ActiveSupport::TestCase
   setup do
     @friend = friends(:one)
-    @friend_history = FriendHistory.new(friend_id: @friend.id, description: 'cheese')    
+    @friend_history = FriendHistory.new(friend_id: @friend.id, description: 'cheese')
   end
 
   test 'friend must be valid' do
-    assert @friend_history.valid?    
+    assert @friend_history.valid?
   end
 
   test 'friend history must have a friend id' do
