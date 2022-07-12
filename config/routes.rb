@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   delete '/logout', to: 'sessions#destroy'
 
-  root "static_pages#home"
+  root 'static_pages#home'
 end
