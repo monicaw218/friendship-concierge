@@ -4,6 +4,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import Button from 'react-bootstrap/Button';
 import AddFriendHistoryModal from './AddFriendHistoryModal';
+import EditFriendModal from './EditFriendModal';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -99,6 +100,15 @@ const Friend = () => {
         <strong>Interests: </strong>
         {friend.interests}
       </p>
+
+      <EditFriendModal
+        id={id}
+        loadFriend={loadFriend}
+        originalFirstName={friend.firstName}
+        originalLastName={friend.lastName}
+        originalAge={friend.age}
+        originalInterests={friend.interests}
+      />
 
       <hr className='my-4' />
 

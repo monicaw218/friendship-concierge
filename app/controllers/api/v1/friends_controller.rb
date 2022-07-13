@@ -44,6 +44,13 @@ class Api::V1::FriendsController < ApplicationController
   # PATCH/PUT /friends/1
   # PATCH/PUT /friends/1.json
   def update
+    @friend.update(friend_params)
+
+    if @friend.save
+      render json: @friend
+    else
+      render json: { errors: @friend.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   # DELETE /friends/1
