@@ -33,6 +33,7 @@ const Friend = () => {
         };
         setFriend(jsonifiedFriend);
 
+        setFriendHistories([]);
         const feed = friendInfo.feed;
         feed.forEach((friendHistory) => {
           const newFriendHistory = {
