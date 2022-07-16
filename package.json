@@ -9,7 +9,9 @@
     "node": "~14"
   },
   "scripts": {
-    "fix": "semistandard --fix"
+    "fix": "semistandard --fix",
+    "lint": "semistandard",
+    "test": "yarn lint && yarn jest --collectCoverage"
   },
   "dependencies": {
     "@babel/preset-react": "^7.17.12",
