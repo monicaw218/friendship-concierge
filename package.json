@@ -34,5 +34,17 @@
     "jest": "^28.1.3",
     "react-test-renderer": "^18.2.0",
     "webpack-dev-server": "^4.9.3"
+  },
+  "semistandard": {
+    "globals": [
+      "describe",
+      "context",
+      "before",
+      "beforeEach",
+      "after",
+      "afterEach",
+      "it",
+      "expect"
+    ]
   }
 }
