@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders correctly 1`] = `
+<footer
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }
+>
+  Weitekamp ©2022.
+</footer>
+`;
