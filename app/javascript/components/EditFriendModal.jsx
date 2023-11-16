@@ -3,6 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+// CSS Modules, react-datepicker-cssmodules.css
+// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const EditFriendModal = ({
   loadFriend,
@@ -17,12 +22,13 @@ const EditFriendModal = ({
   const [lastName, setLastName] = useState(originalLastName);
   const [age, setAge] = useState(originalAge);
   const [interests, setInterests] = useState(originalInterests);
+  const [birthday, setBirthday] = useState(new Date());
 
   const formRef = useRef();
 
   const onFinish = (e) => {
     e.preventDefault();
-    const body = { friend: { first_name: firstName, last_name: lastName, age: age, interests: interests } };
+    const body = { friend: { first_name: firstName, last_name: lastName, age: age, interests: interests, birthday: birthday } };
 
     const url = `/api/v1/friends/${id}`;
     axios.put(url, body)
@@ -73,6 +79,8 @@ const EditFriendModal = ({
               <Form.Control defaultValue={originalInterests} as='textarea' rows={2} onChange={e => setInterests(e.target.value)} />
             </Form.Group>
           </Form>
+
+          <DatePicker selected={birthday} onChange={e => setBirthday(e)} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleCancel}>
