@@ -21,7 +21,6 @@ const AddFriendModal = ({ reloadFriends }) => {
   const resetStates = () => {
     setFirstName(null);
     setLastName(null);
-    setAge(null);
     setInterests(null);
   };
 
