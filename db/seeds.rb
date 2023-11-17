@@ -29,6 +29,6 @@ User.create!(first_name: 'Second', last_name: 'User', email: 'second@user.com', 
     zip: Faker::Address.zip_code,
     interests: hobbies,
     user_id: (i % User.count) + 1,
-    birthday: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f))
+    birthday: Time.zone.at(0.0 + (rand * (Time.now.to_f - 0.0.to_f)))
   )
 end
