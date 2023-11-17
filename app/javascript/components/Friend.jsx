@@ -29,7 +29,8 @@ const Friend = () => {
           lastName: friend.last_name,
           age: friend.age,
           interests: friend.interests,
-          createdAt: friend.created_at
+          createdAt: friend.created_at,
+          birthday: friend.birthday
         };
         setFriend(jsonifiedFriend);
 
@@ -102,6 +103,11 @@ const Friend = () => {
         {friend.interests}
       </p>
 
+      <p>
+        <strong>Birthday: </strong>
+        {friend.birthday}
+      </p>
+
       <EditFriendModal
         id={id}
         loadFriend={loadFriend}
@@ -109,6 +115,7 @@ const Friend = () => {
         originalLastName={friend.lastName}
         originalAge={friend.age}
         originalInterests={friend.interests}
+        originalBirthday={friend.birthday?.replaceAll('-', '/')}
       />
 
       <hr className='my-4' />

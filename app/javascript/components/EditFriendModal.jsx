@@ -15,14 +15,15 @@ const EditFriendModal = ({
   originalFirstName,
   originalLastName,
   originalAge,
-  originalInterests
+  originalInterests,
+  originalBirthday
 }) => {
   const [visible, setVisible] = useState(false);
   const [firstName, setFirstName] = useState(originalFirstName);
   const [lastName, setLastName] = useState(originalLastName);
   const [age, setAge] = useState(originalAge);
   const [interests, setInterests] = useState(originalInterests);
-  const [birthday, setBirthday] = useState(new Date());
+  const [birthday, setBirthday] = useState(originalBirthday ? new Date(originalBirthday) : null);
 
   const formRef = useRef();
 
@@ -80,7 +81,11 @@ const EditFriendModal = ({
             </Form.Group>
           </Form>
 
-          <DatePicker selected={birthday} onChange={e => setBirthday(e)} />
+          <Form.Group className='mb-3' controlId={formRef}>
+            <Form.Label name='birthday'>Birthday</Form.Label>
+            <DatePicker selected={birthday} onChange={e => setBirthday(e)} />
+          </Form.Group>
+
         </Modal.Body>
         <Modal.Footer>
           <Button variant='secondary' onClick={handleCancel}>

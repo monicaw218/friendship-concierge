@@ -15,7 +15,7 @@ const AddFriendModal = ({ reloadFriends }) => {
   const [lastName, setLastName] = useState(null);
   const [age, setAge] = useState(null);
   const [interests, setInterests] = useState(null);
-  const [birthday, setBirthday] = useState(new Date());
+  const [birthday, setBirthday] = useState(null);
 
   const formRef = useRef();
 
@@ -80,7 +80,11 @@ const AddFriendModal = ({ reloadFriends }) => {
               <Form.Control as='textarea' rows={2} onChange={e => setInterests(e.target.value)} />
             </Form.Group>
 
-            <DatePicker selected={birthday} onChange={e => setBirthday(e)} />
+            <Form.Group className='mb-3' controlId={formRef}>
+              <Form.Label name='birthday'>Birthday</Form.Label>
+              <DatePicker selected={birthday} onChange={e => setBirthday(e)} />
+            </Form.Group>
+
           </Form>
         </Modal.Body>
         <Modal.Footer>
