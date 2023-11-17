@@ -79,6 +79,17 @@ const Friend = () => {
     loadFriend();
   };
 
+  const friendAge = (birthday) => {
+      const today = new Date();
+      const birthDate = new Date(birthday);
+      var age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+      }
+      return age;
+  };
+
   return (
     <>
       <h3>{friend.firstName} {friend.lastName}</h3>
@@ -90,7 +101,7 @@ const Friend = () => {
 
       <p>
         <strong>Age: </strong>
-        {friend.age}
+        {friendAge(friend.birthday)}
       </p>
 
       <p>
