@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_16_041357) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_17_231905) do
   create_table "friend_histories", force: :cascade do |t|
     t.integer "friend_id"
     t.datetime "alternate_update_time"
@@ -21,7 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_16_041357) do
 
   create_table "friends", force: :cascade do |t|
     t.string "nickname"
-    t.integer "age"
     t.string "address_line1"
     t.string "address_line2"
     t.string "city"
