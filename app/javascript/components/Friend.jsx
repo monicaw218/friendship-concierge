@@ -27,7 +27,6 @@ const Friend = () => {
           id: friend.id,
           firstName: friend.first_name,
           lastName: friend.last_name,
-          age: friend.age,
           interests: friend.interests,
           createdAt: friend.created_at,
           birthday: friend.birthday
@@ -87,7 +86,7 @@ const Friend = () => {
       if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
           age--;
       }
-      return age;
+      return birthday ? age : null;
   };
 
   return (
@@ -101,7 +100,7 @@ const Friend = () => {
 
       <p>
         <strong>Age: </strong>
-        {friend.birthday ? friendAge(friend.birthday) : null}
+        {friendAge(friend.birthday)}
       </p>
 
       <p>
@@ -124,7 +123,6 @@ const Friend = () => {
         loadFriend={loadFriend}
         originalFirstName={friend.firstName}
         originalLastName={friend.lastName}
-        originalAge={friend.age}
         originalInterests={friend.interests}
         originalBirthday={friend.birthday?.replaceAll('-', '/')}
       />

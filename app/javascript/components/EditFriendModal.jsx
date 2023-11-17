@@ -14,14 +14,12 @@ const EditFriendModal = ({
   id,
   originalFirstName,
   originalLastName,
-  originalAge,
   originalInterests,
   originalBirthday
 }) => {
   const [visible, setVisible] = useState(false);
   const [firstName, setFirstName] = useState(originalFirstName);
   const [lastName, setLastName] = useState(originalLastName);
-  const [age, setAge] = useState(originalAge);
   const [interests, setInterests] = useState(originalInterests);
   const [birthday, setBirthday] = useState(originalBirthday ? new Date(originalBirthday) : null);
 
@@ -29,7 +27,7 @@ const EditFriendModal = ({
 
   const onFinish = (e) => {
     e.preventDefault();
-    const body = { friend: { first_name: firstName, last_name: lastName, age: age, interests: interests, birthday: birthday } };
+    const body = { friend: { first_name: firstName, last_name: lastName, interests: interests, birthday: birthday } };
 
     const url = `/api/v1/friends/${id}`;
     axios.put(url, body)
@@ -68,11 +66,6 @@ const EditFriendModal = ({
             <Form.Group className='mb-3' controlId={formRef}>
               <Form.Label name='last_name'>Last Name</Form.Label>
               <Form.Control defaultValue={originalLastName} onChange={e => setLastName(e.target.value)} />
-            </Form.Group>
-
-            <Form.Group className='mb-3' controlId={formRef}>
-              <Form.Label name='age'>Age</Form.Label>
-              <Form.Control defaultValue={originalAge} onChange={e => setAge(e.target.value)} />
             </Form.Group>
 
             <Form.Group className='mb-3' controlId={formRef}>

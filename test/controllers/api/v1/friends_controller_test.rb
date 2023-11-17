@@ -11,17 +11,16 @@ class Api::V1::FriendsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Friend.count') do
       log_in_as @user
       post api_v1_friends_url, params: { friend: {
-        age: @friend.age,
         interests: @friend.interests,
         first_name: @friend.first_name,
-        last_name: @friend.last_name
+        last_name: @friend.last_name,
+        birthday: @friend.birthday
       } }
     end
 
     friend = @response.parsed_body
     assert_equal friend['first_name'], 'Monica'
     assert_equal friend['last_name'], 'Weitekamp'
-    assert_equal friend['age'], 29
     assert_equal friend['interests'], 'Website development, volleyball, gardening, skiing, learning new languages'
   end
 
@@ -42,16 +41,15 @@ class Api::V1::FriendsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should update friend' do
     patch api_v1_friend_url(@friend), params: { friend: {
-      age: 42,
       interests: 'Dentistry, marine life',
       first_name: 'Patrick',
-      last_name: 'Sherman'
+      last_name: 'Sherman',
+      birthday: '2003-05-30'
     } }
 
     friend = @response.parsed_body
     assert_equal 'Patrick', friend['first_name']
     assert_equal 'Sherman', friend['last_name']
-    assert_equal 42, friend['age']
     assert_equal 'Dentistry, marine life', friend['interests']
   end
 end

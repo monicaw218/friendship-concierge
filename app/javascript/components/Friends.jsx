@@ -36,8 +36,8 @@ const Friends = () => {
             id: friend.id,
             first_name: friend.first_name,
             last_name: friend.last_name,
-            age: friend.age,
-            interests: friend.interests
+            interests: friend.interests,
+            birthday: friend.birthday
           };
 
           setFriends(friends => [...friends, newFriend]);
@@ -62,6 +62,17 @@ const Friends = () => {
       .catch((err) => console.log('Error: ' + err.response.data.errors));
   };
 
+  const friendAge = (birthday) => {
+    const today = new Date();
+    const birthDate = new Date(birthday);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return birthday ? age : null;
+  };
+
   return (
     <>
       <h1>Friends Catalog</h1>
@@ -79,7 +90,7 @@ const Friends = () => {
             return (
               <tr key={i}>
                 <td><a href={`friends/${friend.id}`}>{friend.first_name} {friend.last_name}</a></td>
-                <td>{friend.age}</td>
+                <td>{friendAge(friend.birthday)}</td>
                 <td>{friend.interests}</td>
                 <td>
                   <OverlayTrigger trigger='click' placement='right' overlay={displayPopover(friend.id)}>

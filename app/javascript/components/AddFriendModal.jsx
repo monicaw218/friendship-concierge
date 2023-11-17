@@ -13,7 +13,6 @@ const AddFriendModal = ({ reloadFriends }) => {
   const [visible, setVisible] = useState(false);
   const [firstName, setFirstName] = useState(null);
   const [lastName, setLastName] = useState(null);
-  const [age, setAge] = useState(null);
   const [interests, setInterests] = useState(null);
   const [birthday, setBirthday] = useState(null);
 
@@ -28,7 +27,7 @@ const AddFriendModal = ({ reloadFriends }) => {
 
   const onFinish = (e) => {
     e.preventDefault();
-    const body = { friend: { first_name: firstName, last_name: lastName, age: age, interests: interests, birthday: birthday } };
+    const body = { friend: { first_name: firstName, last_name: lastName, interests: interests, birthday: birthday } };
 
     const url = '/api/v1/friends';
     axios.post(url, body)
@@ -68,11 +67,6 @@ const AddFriendModal = ({ reloadFriends }) => {
             <Form.Group className='mb-3' controlId={formRef}>
               <Form.Label name='last_name'>Last Name</Form.Label>
               <Form.Control placeholder="Input your friend's last name" onChange={e => setLastName(e.target.value)} />
-            </Form.Group>
-
-            <Form.Group className='mb-3' controlId={formRef}>
-              <Form.Label name='age'>Age</Form.Label>
-              <Form.Control placeholder="Input your friend's age" onChange={e => setAge(e.target.value)} />
             </Form.Group>
 
             <Form.Group className='mb-3' controlId={formRef}>

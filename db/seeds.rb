@@ -22,13 +22,13 @@ User.create!(first_name: 'Second', last_name: 'User', email: 'second@user.com', 
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     nickname: nil,
-    age: rand(23..35),
     address_line1: Faker::Address.street_address,
     address_line2: Faker::Address.secondary_address,
     city: Faker::Address.city,
     state: Faker::Address.state_abbr,
     zip: Faker::Address.zip_code,
     interests: hobbies,
-    user_id: (i % User.count) + 1
+    user_id: (i % User.count) + 1,
+    birthday: Time.at(0.0 + rand * (Time.now.to_f - 0.0.to_f))
   )
 end

@@ -4,7 +4,6 @@ one:
   first_name: Monica
   last_name: Weitekamp
   nickname: Mongol
-  age: 29
   address_line1: 874 President Street
   address_line2: 'Apt #3F'
   city: Brooklyn
@@ -13,34 +12,9 @@ one:
   interests: Website development, volleyball, gardening, skiing, learning new languages
 
 two:
-  first_name: Matt
-  last_name: Damiani
-  nickname: '#Money-Matt'
-  age: 28
-  address_line1: 874 President Street
-  address_line2: "Apt #3F"
-  city: Brooklyn
-  state: NY
-  zip: 11215
-  interests: Lifting weights, volleyball, 3D Printing, snowboarding
-
-three:
-  first_name: Michael
-  last_name: Damiani
-  nickname: null
-  age: 32
-  address_line1: 14 E Chase Street
-  address_line2: null
-  city: Baltimore
-  state: MD
-  zip: 21202
-  interests: Skiing, hiking, biking, backpacking, the movie Shiva Baby
-
-four:
   first_name: Joseph
   last_name: Weitekamp
   nickname: Joe
-  age: 25
   address_line1: 94 Conklin Avenue
   address_line2: Basement
   city: Wheatley Heights
@@ -48,44 +22,20 @@ four:
   zip: 11798
   interests: Dungeons and Dragons, drawing, writing poetry
 
-five:
-  first_name: Linda
-  last_name: Damiani
-  nickname: null
-  age: 64
-  address_line1: 62 Massapequa Avenue
-  address_line2: null
-  city: Massapequa Park
-  state: NY
-  interests: Pottery, classic rock, the Mets
-
-six:
-  first_name: Scott
-  last_name: Damiani
-  nickname: 
-  age: 64
-  address_line1: 62 Massapequa Avenue
-  address_line2: null
-  city: Massapequa Park
-  state: NY
-  interests: Jelly, The Rolling Stones, classic rock, the Mets
-
-seven:
+three:
   first_name: Rossana
   last_name: Weitekamp
   nickname: Mom
-  age: 58
   address_line1: 85 Morris Avenue West
   address_line2: null
   city: Malverne
   state: 11565
   interests: Tennis, NYU, gardening, her cat Leopold, disco, classic rock, Hawaii, learning Italian
 
-eight:
+four:
   first_name: Joseph
   last_name: Weitekamp
   nickname: Dad
-  age: 62
   address_line1: 85 Morris Avenue West
   address_line2: null
   city: Malverne
@@ -96,7 +46,6 @@ eight:
 #   first_name:
 #   last_name:
 #   nickname:
-#   age: 
 #   address_line1: 
 #   address_line2: 
 #   city: 

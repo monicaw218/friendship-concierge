@@ -16,7 +16,6 @@ class FriendsTest < ApplicationSystemTestCase
 
     fill_in 'Address line 1', with: @friend.address_line1
     fill_in 'Address line 2', with: @friend.address_line2
-    fill_in 'Age', with: @friend.age
     fill_in 'City', with: @friend.city
     fill_in 'Interests', with: @friend.interests
     fill_in 'Name', with: @friend.name
@@ -35,7 +34,6 @@ class FriendsTest < ApplicationSystemTestCase
 
     fill_in 'Address line 1', with: @friend.address_line1
     fill_in 'Address line 2', with: @friend.address_line2
-    fill_in 'Age', with: @friend.age
     fill_in 'City', with: @friend.city
     fill_in 'Interests', with: @friend.interests
     fill_in 'Name', with: @friend.name
