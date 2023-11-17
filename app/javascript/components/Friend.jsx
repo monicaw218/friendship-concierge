@@ -101,7 +101,7 @@ const Friend = () => {
 
       <p>
         <strong>Age: </strong>
-        {friendAge(friend.birthday)}
+        {friend.birthday ? friendAge(friend.birthday) : null}
       </p>
 
       <p>
