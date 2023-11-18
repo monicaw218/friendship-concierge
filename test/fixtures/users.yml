@@ -7,7 +7,7 @@ monica:
   password_digest: <%= User.digest('password') %>
 
 matthew:
-  first_name: Matthew
-  last_name: Damiani
-  email: mada@aol.com
+  first_name: Leopold
+  last_name: Weitekamp
+  email: leopoldo@aol.com
   password_digest: <%= User.digest('password') %>

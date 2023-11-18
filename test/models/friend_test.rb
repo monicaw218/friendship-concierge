@@ -42,4 +42,10 @@ class FriendTest < ActiveSupport::TestCase
     assert_equal('Mo', friend2.first_name)
     assert_equal('We', friend2.last_name)
   end
+
+  test 'birthday is saved as null if not a valid date' do
+    @friend.birthday = '2002-13-32'
+
+    assert_nil(@friend.birthday)
+  end
 end

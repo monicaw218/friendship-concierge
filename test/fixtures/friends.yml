@@ -10,6 +10,7 @@ one:
   state: NY
   zip: 11215
   interests: Website development, volleyball, gardening, skiing, learning new languages
+  birthday: '1993-02-18'
 
 two:
   first_name: Joseph
@@ -21,6 +22,7 @@ two:
   state: NY
   zip: 11798
   interests: Dungeons and Dragons, drawing, writing poetry
+  birthday: '1996-11-27'
 
 three:
   first_name: Rossana
@@ -31,6 +33,7 @@ three:
   city: Malverne
   state: 11565
   interests: Tennis, NYU, gardening, her cat Leopold, disco, classic rock, Hawaii, learning Italian
+  birthday: '1964-02-16'
 
 four:
   first_name: Joseph
@@ -41,6 +44,7 @@ four:
   city: Malverne
   state: 11565
   interests: software development, biking, hiking, classic rock, Hawaii
+  birthday: '1959-07-29'
 
 # number:
 #   first_name:
