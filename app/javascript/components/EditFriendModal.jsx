@@ -21,7 +21,7 @@ const EditFriendModal = ({
   const [firstName, setFirstName] = useState(originalFirstName);
   const [lastName, setLastName] = useState(originalLastName);
   const [interests, setInterests] = useState(originalInterests);
-  const [birthday, setBirthday] = useState(new Date(originalBirthday));
+  const [birthday, setBirthday] = useState(originalBirthday ? new Date(originalBirthday) : null);
 
   const formRef = useRef();
 
