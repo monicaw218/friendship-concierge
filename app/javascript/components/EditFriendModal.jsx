@@ -21,7 +21,7 @@ const EditFriendModal = ({
   const [firstName, setFirstName] = useState(originalFirstName);
   const [lastName, setLastName] = useState(originalLastName);
   const [interests, setInterests] = useState(originalInterests);
-  const [birthday, setBirthday] = useState(originalBirthday ? new Date(originalBirthday) : null);
+  const [birthday, setBirthday] = useState(new Date(originalBirthday));
 
   const formRef = useRef();
 
@@ -60,17 +60,17 @@ const EditFriendModal = ({
           <Form>
             <Form.Group className='mb-3' controlId={formRef}>
               <Form.Label name='first_name'>First Name</Form.Label>
-              <Form.Control defaultValue={originalFirstName} onChange={e => setFirstName(e.target.value)} />
+              <Form.Control defaultValue={firstName} onChange={e => setFirstName(e.target.value)} />
             </Form.Group>
 
             <Form.Group className='mb-3' controlId={formRef}>
               <Form.Label name='last_name'>Last Name</Form.Label>
-              <Form.Control defaultValue={originalLastName} onChange={e => setLastName(e.target.value)} />
+              <Form.Control defaultValue={lastName} onChange={e => setLastName(e.target.value)} />
             </Form.Group>
 
             <Form.Group className='mb-3' controlId={formRef}>
               <Form.Label name='interests'>Interests</Form.Label>
-              <Form.Control defaultValue={originalInterests} as='textarea' rows={2} onChange={e => setInterests(e.target.value)} />
+              <Form.Control defaultValue={interests} as='textarea' rows={2} onChange={e => setInterests(e.target.value)} />
             </Form.Group>
           </Form>
 

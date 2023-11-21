@@ -118,14 +118,15 @@ const Friend = () => {
         {friend.birthday}
       </p>
 
-      <EditFriendModal
+
+      { friend.firstName ? <EditFriendModal
         id={id}
         loadFriend={loadFriend}
         originalFirstName={friend.firstName}
         originalLastName={friend.lastName}
         originalInterests={friend.interests}
-        originalBirthday={friend.birthday?.replaceAll('-', '/')}
-      />
+        originalBirthday={friend.birthday.replaceAll('-', '/')}
+      /> : null }
 
       <hr className='my-4' />
 
