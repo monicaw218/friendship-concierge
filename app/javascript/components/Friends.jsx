@@ -19,8 +19,8 @@ const Friends = () => {
           You sure you want to delete this friend?
         </Popover.Header>
         <Popover.Body>
-          <input type='submit' style={{ width: 'auto' }} value='Yes' className='btn btn-primary' onClick={e => deleteFriend(id, e)} />
-          <input type='reset' style={{ width: 'auto' }} value='No' className='btn' onClick={() => document.querySelector(`#danger-button-${id}`).click()} />
+          <input type='submit' style={{ width: 'auto' }} value='Yes' className='btn btn-primary btn-sm' onClick={e => deleteFriend(id, e)} />
+          <input type='reset' style={{ width: 'auto' }} value='No' className='btn btn-secondary btn-sm' onClick={() => document.querySelector(`#danger-button-${id}`).click()} />
         </Popover.Body>
       </Popover>
     );
