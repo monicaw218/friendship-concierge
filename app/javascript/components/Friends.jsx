@@ -94,7 +94,7 @@ const Friends = () => {
                 <td>{friendAge(friend.birthday)}</td>
                 <td>{friend.interests}</td>
                 <td>
-                  <OverlayTrigger trigger='click' placement='right' overlay={displayPopover(friend.id)}>
+                  <OverlayTrigger trigger='click' placement='right' overlay={displayPopover(friend.id)} rootClose>
                     <Button id={`danger-button-${friend.id}`} variant='danger'>X</Button>
                   </OverlayTrigger>
                 </td>
