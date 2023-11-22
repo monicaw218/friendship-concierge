@@ -20,6 +20,7 @@ const Friends = () => {
         </Popover.Header>
         <Popover.Body>
           <input type='submit' style={{ width: 'auto' }} value='Yes' className='btn btn-primary' onClick={e => deleteFriend(id, e)} />
+          <input type='reset' style={{ width: 'auto' }} value='No' className='btn' onClick={() => document.querySelector(`#danger-button-${id}`).click()} />
         </Popover.Body>
       </Popover>
     );
@@ -94,7 +95,7 @@ const Friends = () => {
                 <td>{friend.interests}</td>
                 <td>
                   <OverlayTrigger trigger='click' placement='right' overlay={displayPopover(friend.id)}>
-                    <Button variant='danger'>X</Button>
+                    <Button id={`danger-button-${friend.id}`} variant='danger'>X</Button>
                   </OverlayTrigger>
                 </td>
               </tr>
